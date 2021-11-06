@@ -23,7 +23,7 @@ function Signup() {
         setErrors(validation(values));
     }
     return (
-        <div className="container">
+        <div className="container2">
             <div className="app-wrapper">
                 <div>
                     <h2 className="title">Create Account</h2>

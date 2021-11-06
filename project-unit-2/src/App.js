@@ -1,5 +1,3 @@
-import './App.css';
-import Footer from './components/Footer';
 import Header from './components/Header';
 import Productpage from './components/Productpage';
 import Form from './components/Form';
@@ -9,7 +7,7 @@ function App() {
   return (
     <>
     <Header/>
-//     <Form />
+    {/* <Form /> */}
     <Productpage/>
     </>
   );
