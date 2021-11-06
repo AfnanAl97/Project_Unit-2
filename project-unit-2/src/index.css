@@ -5,9 +5,150 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: rgb(75, 75, 75);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.header{
+  background-color: #ffffff;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  border-bottom:  rgba(123, 120, 161, 0.13) solid 1px;
 }
+.container{
+  margin-top: 9%;
+  margin-left:20%;
+  padding:1px 16px;
+}
+
+/* filter style start */
+.filter{
+  width: 270px;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 12%;
+  background: #ffffff;
+  border: rgba(123, 120, 161, 0.13) solid 1px;
+  border-top: 0px;
+  overflow-x: hidden;
+  display: grid;
+  grid-template-rows: 50px 250px 200px 70px;
+}
+
+.form-1 , .form-2 {
+  padding: 0px 20px;
+  border-bottom: rgba(123, 120, 161, 0.13) solid 1px;
+  font-size: 14px;
+}
+
+.form-3{
+  display: grid;
+}
+#filtering{
+  padding: 10px;
+  width: 170px;
+  justify-self: center;
+  margin: 20px 0;
+  background-color: #4761A3;
+  border-radius: 15px;
+  color: #ffffff;
+  border: 0px;
+}
+#filtering:hover{
+  background-color: #778fcc;
+}
+
+button{
+  cursor: pointer;
+}
+
+label {
+  display: grid;
+  grid-template-columns: min-content auto;
+  grid-gap: 0.5em;
+  padding: 5px;
+}
+/* filter style end */
+
+
+/* cards style start */
+.cards{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  row-gap: 10px;
+  column-gap: 10px;
+  margin: 3% 0 0 0;
+  row-gap: 35px;
+}
+
+.card{
+  width: 295px;
+  /* height: 350px; */
+  background: #ffffff;
+  border: rgba(123, 120, 161, 0.13) solid 1px;
+  border-radius: 30px;
+  display: grid;
+  grid-template-rows: auto auto auto auto auto;
+  padding: 20px;
+}
+
+.card p{
+  text-overflow: ellipsis;
+  overflow: hidden; 
+  width: 270px; 
+  height: 1.2em; 
+  white-space: nowrap;
+}
+
+.card img{
+  width: 270px;
+}
+
+.PriceAndBtn{
+  display: grid;
+  grid-template-columns: 50px auto;
+}
+
+#price{
+  margin-left: 30%;
+  font-weight: 700;
+}
+
+#cart{
+  background-color: #4761A3;
+  color: #ffffff;
+  width: 95px;
+  height: 30px;
+  justify-self: end;
+  align-self: center;
+  border-radius: 10px;
+  /* padding: 3px; */
+  border: 0px
+}
+#cart:hover{
+  background-color: #607cc4;
+
+}
+
+/* cards style end */
+
+
+/* search style start */
+.search{
+  display: grid;
+}
+
+#srch{
+  justify-self: center;
+  width: 60%;
+  padding: 18px 30px;
+  font-size: 15px;
+  border-radius: 30px;
+  background: #cacaca23;
+  border: 0px;
+  color: rgb(106, 105, 109);
+}
+/* search style end */
