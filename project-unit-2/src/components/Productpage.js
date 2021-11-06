@@ -36,11 +36,11 @@ function Productpage() {
             </div>
             <div className="form-2">
                 <h3 id="bord">Price range</h3> 
-                <label><input type="radio" onChange={filtering} name="Price" value="under$25"/>under $25</label> 
-                <label><input type="radio" onChange={filtering} name="Price" value="$25to$50"/>$25 to $50</label> 
-                <label><input type="radio" onChange={filtering} name="Price" value="$50to$100"/>$50 to $100</label>
-                <label><input type="radio" onChange={filtering} name="Price" value="$100to$200"/>$100 to $200</label>
-                <label><input type="radio" onChange={filtering} name="Price" value="$200andAbove"/>$200 And Above</label>
+                <label><input type="radio" onChange={filtering} name="Price" value="under2000"/>under 2000 SAR</label> 
+                <label><input type="radio" onChange={filtering} name="Price" value="2000to4000"/>2000 SAR to 4000 SAR</label> 
+                <label><input type="radio" onChange={filtering} name="Price" value="4000to6000"/>4000 SAR to 6000 SAR</label>
+                <label><input type="radio" onChange={filtering} name="Price" value="7000to9000"/>7000 SAR to 9000 SAR</label>
+                <label><input type="radio" onChange={filtering} name="Price" value="9000andAbove"/>9000 SAR And Above</label>
             </div>
             <div className="form-3">
                 <button id="filtering">filtering</button>

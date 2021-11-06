@@ -85,26 +85,29 @@ label {
 }
 
 .card{
-  width: 295px;
+  width: 280px;
   /* height: 350px; */
   background: #ffffff;
   border: rgba(123, 120, 161, 0.13) solid 1px;
   border-radius: 30px;
   display: grid;
-  grid-template-rows: auto auto auto auto auto;
+  grid-template-rows: 230px 40px 40px 70px;
   padding: 20px;
 }
-
+.card h3{
+  font-size: 18px;
+}
 .card p{
   text-overflow: ellipsis;
   overflow: hidden; 
   width: 270px; 
   height: 1.2em; 
   white-space: nowrap;
+  font-size: 14px;
 }
 
 .card img{
-  width: 270px;
+  width: 230px;
 }
 
 .PriceAndBtn{
@@ -143,12 +146,12 @@ label {
 
 #srch{
   justify-self: center;
-  width: 60%;
-  padding: 18px 30px;
+  width: 50%;
+  padding: 16px 30px;
   font-size: 15px;
   border-radius: 30px;
-  background: #cacaca23;
-  border: 0px;
+  background: #f0f0f048;
+  border: rgba(123, 120, 161, 0.13) solid 1px;
   color: rgb(106, 105, 109);
 }
 /* search style end */
@@ -229,4 +232,34 @@ button:active {
   margin-top: 250px;
   min-width: 370px;
   color: orangered;
+}
+@media (max-width: 810px), (max-width: 1368px) {
+  .card{
+    width: 250px;
+  }
+  .container{
+    margin-left:22%;
+  }
+  label {
+    display: grid;
+    grid-template-columns: min-content auto;
+    grid-gap: 0.5em;
+    padding: 2px;
+  }
+  .filter{
+    width: 250px;
+    grid-template-rows: 50px 230px 180px 70px;
+  }
+  #cart{
+    margin-right: 10px;
+    margin-bottom: 20px;
+  }
+  .card p{
+    text-overflow: ellipsis;
+    overflow: hidden; 
+    width: 260px; 
+    height: 1.2em; 
+    white-space: nowrap;
+    font-size: 14px;
+  }
 }

@@ -9,8 +9,8 @@ function validation(values) {
     }
     if(!values.password){
         errors.password="Password is required."
-    } else if(values.password.length < 3){
-        errors.password="Password must be more than three characters."
+    } else if(values.password.length < 4){
+        errors.password="Password must be more than four characters."
     }
 
     return errors;
