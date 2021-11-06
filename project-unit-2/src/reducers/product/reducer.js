@@ -10,7 +10,7 @@ const initialState = {
         },
         {
             id : 2,
-            name : " LG 55NANO75VPA 55 4K Ultra HD Nano Cell LED Smart TV ",
+            name : " LG 55NANO75VPA 55 4K Ultra",
             price : 3100,
             description : "display type 4K Ultra HD Nano Celldisplay size 55 display backlight LEDoperating system WebOS 5.0HDR (high dynamic range imaging) HDR10 Proproduct type Smart TVdisplay resolution 3840 X 2160prefresh rate 50 Hzprocessor cores Quad Coreconnectivity technology Bluetooth/WiFi/WirelessHDMI port 3 Port HDMIconnectivity port HDMI/USB/Optical Audio Out/RJ-45speakers Ultra Surround (2 X 10W)special features ThinQ AI, Ultra Surround, Magic Remotepre-installed apps Apple TV App, Netflix ",
             category : "TV",
@@ -18,7 +18,7 @@ const initialState = {
         },
         {
             id : 3,
-            name : "HP All-in-One 24-df1003nx PC Desktop Computer",
+            name : "HP All-in-One 24-df1003nx",
             description: "processor type Intel Core i3-1125G4 (11th Gen) graphics card Intel GMA HD display type FHD-LED Multi-touch Display display size 23.8 operating system Windows 10 product type PC Desktop Computer model series (HP) All-in-One generation/release 2021 color Jet Black operating system architecture 64-bit processor speed 2 GHz RAM 4 GB RAM capacity 1 TB HDD ",
             price : 2899 ,
             category : "PC",
@@ -34,7 +34,7 @@ const initialState = {
         },
         {
             id : 5,
-            name : "Lenovo IdeaCentre AIO 3 24IMB05 All-in-One PC Desktop Computer ",
+            name : "Lenovo IdeaCentre AIO 3",
             description: "processor type Intel Core i7-10700T (10th Gen) graphics card AMD Radeon 625 (2 GB) display type FHD-LED IPS Multi-Touch Display display size 23.8 operating system Windows 10 product type PC Desktop Computer model series (Lenovo) Ideacentre generation/release 2020 color Business Black operating system architecture 64-bit processor speed 2 GHz RAM 8 GB RAM capacity 512 GB PCIe NVMe M.2 SSD ",
             price : 4899 ,
             category : "PC",
@@ -42,7 +42,7 @@ const initialState = {
         },
         {
             id : 6,
-            name : "Apple iMac All-in-One PC Desktop Computer",
+            name : "Apple iMac All-in-One",
             description: "processor type Intel Core i7 (10th Gen) graphics card AMD Radeon Pro 5500 XT VRAM (8 GB) display type 5K Retina IPS Display display size 27 operating system macOS Catalina product type PC Desktop Computer model series (Apple) iMac generation/release 2020 color Silver processor speed 3.8 GHz RAM 8 GB RAM capacity 512 GB SSD ",
             price : 10500 ,
             category : "PC",
@@ -60,7 +60,7 @@ const initialState = {
         },
         {
             id : 8,
-            name : "Lenovo IdeaCentre AIO 3 24IMB05 All-in-One PC Desktop Computer",
+            name : "Lenovo IdeaCentre AIO 3",
             description: "processor type Intel Core i5-10400T (10th Gen) graphics card AMD Radeon 625 (2 GB) display type FHD-LED Multi-touch Display display size 23.8 operating system Windows 10 product type PC Desktop Computer model series (Lenovo) Ideacentre generation/release 2020 color White operating system architecture 64-bit processor speed 2 GHz RAM 8 GB RAM capacity 1 TB HDD ",
             price : 3599 ,
             category : "PC",
@@ -140,7 +140,7 @@ const initialState = {
         },
         {
             id : 18,
-            name : "Sony KD65X80JS 65 4K Ultra HD DLED Smart TV",
+            name : "Sony KD65X80JS 65 4K",
             price : 4000,
             category : "TV",
             description : "display type 4K Ultra HD display size 65 display backlight DLED operating system Android 9.0 HDR (high dynamic range imaging) HDR10 product type Smart TV display resolution 3840 X 2160p aspect ratio 16:9 refresh rate 50 Hz connectivity technology Bluetooth/WiFi/Wireless HDMI port 4 Port HDMI connectivity port HDMI/HDMI (ARC)/USB/Optical Audio Out/Composite In/RS-232C In/RF In/RJ-45 speakers Dolby Digital Audio (2 X 10W) special features Google Assistant, Voice Search Remote ",
@@ -148,7 +148,7 @@ const initialState = {
         },
         {
             id : 19,
-            name : "Samsung AU7000 70 4K Ultra HD LED Smart TV",
+            name : "Samsung AU7000 70 4K",
             price : 4299,
             category : "TV",
             description : "display type 4K Ultra HD display size 70 display backlight LED operating system Tizen 2.0 HDR (high dynamic range imaging) HDR10+ product type Smart TV model series (Samsung) Series 7 display resolution 3840 X 2160p connectivity technology Bluetooth/WiFi/Wireless HDMI port 2 Port HDMI connectivity port HDMI/HDMI (eARC)/USB/Optical Audio Out/RF In/RJ-45 speakers Dolby Digital Plus (20 W RMS) special features Mirroring, Web Browser, WiFi Direct pre-installed apps Netflix, T-Cast, YouTube, Dailymotion ",
@@ -156,7 +156,7 @@ const initialState = {
         },
         {
             id : 20,
-            name : "Iphone",
+            name : "Iphone 13",
             description: "Apple iPhone 13 Pro 256 GB, Pacific Blue, 5G",
             price : 7199 ,
             category : "Mobiles",
@@ -172,7 +172,7 @@ const initialState = {
         },
         {
             id : 22,
-            name : "Acer Aspire C22-963 All-in-One PC Desktop Computer",
+            name : "Acer Aspire C22-963",
             description: "processor type Intel Core i3-1005G1 (10th Gen) graphics card Intel UHD Graphics G1 display type FHD-LED IPS Display display size 21.5 operating system Windows 10 product type PC Desktop Computer model series (Acer) Aspire generation/release 2020 color Silver operating system architecture 64-bit processor speed 1.2 GHz RAM 4 GB RAM capacity 1 TB HDD ",
             price : 2199 ,
             category : "PC",
@@ -180,7 +180,7 @@ const initialState = {
         },
         {
             id : 23,
-            name : "Apple iMac M1 PC Desktop Computer ",
+            name : "Apple iMac M1 PC ",
             description: "processor type M1 8-core CPU 16-core Neural Engine graphics card 8-core GPU display type 4.5K Retina IPS Display display size 24 operating system macOS Big Sur product type PC Desktop Computer model series (Apple) iMac generation/release 2021 color Blue processor speed 1 GHz RAM 8 GB RAM capacity 512 GB SSD",
             price : 8000 ,
             category : "PC",
