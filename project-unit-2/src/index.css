@@ -21,8 +21,9 @@ body {
   border-bottom:  rgba(123, 120, 161, 0.13) solid 1px;
 }
 
-.header h2{
+#logo{
   color: #4761A3;
+  text-decoration: none;
 }
 
 .logo{
@@ -80,7 +81,7 @@ body {
   border-top: 0px;
   overflow-x: hidden;
   display: grid;
-  grid-template-rows: 50px 250px 200px 70px;
+  grid-template-rows: 50px 250px 70px;
 }
 
 .form-1 , .form-2 {
