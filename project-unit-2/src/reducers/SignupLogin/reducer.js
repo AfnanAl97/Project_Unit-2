@@ -1,6 +1,10 @@
 const initialState = {
   users: [{
-    username:"Afnan",
+    username: "Admin",
+    password:"4444"
+  },
+  {
+    username: "Afnan",
     password:"1234"
   }],
 };
