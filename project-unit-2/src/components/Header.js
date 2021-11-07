@@ -14,9 +14,6 @@ function Header() {
         <li><Link id="shop" to="/cart"><FaShoppingBasket/></Link></li>
       </ul>
   </div>
-    {/* <div className="header">
-    <h1>Header</h1>
-    </div> */}
     </>
   );
 }

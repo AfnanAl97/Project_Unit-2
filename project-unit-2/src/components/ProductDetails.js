@@ -2,9 +2,12 @@ import { useParams } from "react-router";
 import { useSelector } from "react-redux";
 import { useNavigate } from 'react-router-dom';
 import { FaHeart } from "react-icons/fa";
+import { useDispatch } from "react-redux";
+import {setWish} from "../reducers/wishlist/action"
 
 function ProductDetails() {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const { id } = useParams();
     const state = useSelector((state) => {
@@ -13,6 +16,12 @@ function ProductDetails() {
         };
       });
     
+    const addwish = (e) =>{
+        // console.log(e.name);
+        const action = setWish(e);
+        dispatch(action);
+        navigate(`/Wishlist`);
+    }
     return (
         <>
          {state.products !== undefined ? 
@@ -21,7 +30,7 @@ function ProductDetails() {
                         return(
                             <div className="parent">
                             <div className="details">
-                                <div><FaHeart className="wish" onClick={() => {navigate(`/Wishlist`)}}/></div>
+                                <div><FaHeart className="wish" onClick={() => {addwish(e)}}/></div>
                                 <img className="img" alt="" src={e.image}/>
                                 <h3>{e.name}</h3>
                                 <p>{e.description}</p>
