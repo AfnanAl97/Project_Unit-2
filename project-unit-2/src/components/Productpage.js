@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Footer from "./Footer";
 import Search from "./Search";
 import Filter from "./Filter";
+import { FaHeart } from "react-icons/fa";
 
 function Productpage() {
     const navigate = useNavigate();
@@ -24,6 +25,7 @@ function Productpage() {
                     {console.log(state.filteredProducts)}
                 {state.filteredProducts !== undefined ? (state.filteredProducts.map((e)=>{return(
                     <div className="card">
+                        <div><FaHeart className="wish" onClick={() => {navigate(`/Wishlist`)}}/></div>
                         <img className="img" src={e.image} alt="" onClick={() => {navigate(`/product/${e.id}`)}}/>
                         <h3 onClick={() => {navigate(`/product/${e.id}`)}}>{e.name}</h3>
                         <p>{e.description}</p>
@@ -33,6 +35,7 @@ function Productpage() {
                         </div>
                     </div>) })) : state.searchresult !== undefined ?(state.searchresult.map((e)=>{return(
                     <div className="card">
+                        <div ><FaHeart className="wish" onClick={() => {navigate(`/Wishlist`)}}/></div>
                         <img className="img" src={e.image} alt="" onClick={() => {navigate(`/product/${e.id}`)}}/>
                         <h3 onClick={() => {navigate(`/product/${e.id}`)}}>{e.name}</h3>
                         <p>{e.description}</p>
@@ -42,6 +45,7 @@ function Productpage() {
                         </div>
                     </div>) })) :(state.products.map((e)=>{return(
                     <div className="card">
+                        <div><FaHeart className="wish" onClick={() => {navigate(`/Wishlist`)}}/></div>
                         <img className="img" src={e.image} alt="" onClick={() => {navigate(`/product/${e.id}`)}}/>
                         <h3 onClick={() => {navigate(`/product/${e.id}`)}}>{e.name}</h3>
                         <p>{e.description}</p>

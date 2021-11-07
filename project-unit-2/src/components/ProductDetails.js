@@ -1,6 +1,7 @@
 import { useParams } from "react-router";
 import { useSelector } from "react-redux";
 import { useNavigate } from 'react-router-dom';
+import { FaHeart } from "react-icons/fa";
 
 function ProductDetails() {
     const navigate = useNavigate();
@@ -20,6 +21,7 @@ function ProductDetails() {
                         return(
                             <div className="parent">
                             <div className="details">
+                                <div><FaHeart className="wish" onClick={() => {navigate(`/Wishlist`)}}/></div>
                                 <img className="img" alt="" src={e.image}/>
                                 <h3>{e.name}</h3>
                                 <p>{e.description}</p>
