@@ -107,7 +107,7 @@ body {
   background-color: #778fcc;
 }
 
-button , .card img , .card h3{
+button , .card img , .card h3 , .wishcard img , .wishcard h3{
   cursor: pointer;
 }
 
@@ -156,7 +156,7 @@ label {
   font-size: 14px;
 }
 
-.card img{
+.card img , .wishcard img{
   width: 230px;
   justify-self: center;
 }
@@ -332,6 +332,58 @@ button:active {
 }
 
 /* product details end */
+
+/* wish list start  */
+.wishpage{
+  justify-content: center;
+  display: grid;
+  row-gap: 10px;
+  margin: 10%;
+
+}
+.wishbtn{
+  display: grid;
+}
+.wishes{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  column-gap: 10px;
+  row-gap: 20px;
+}
+
+.wishcard{
+  width: 280px;
+  /* height: 350px; */
+  background: #ffffff;
+  border: rgba(123, 120, 161, 0.13) solid 1px;
+  border-radius: 30px;
+  display: grid;
+  grid-template-rows: 230px 70px 70px;
+  padding: 20px;
+  justify-content: center;
+}
+
+.watch button {
+  width: 100px;
+}
+
+#back{
+  width: 200px;
+  padding: 8px;
+  justify-self: center;
+}
+
+#delete{
+  background-color: #4761A3;
+  color: #ffffff;
+  width: 95px;
+  height: 20px;
+  justify-self: center;
+  border-radius: 10px;
+  border: 0px
+}
+
+/* wish list end */
 
 
 

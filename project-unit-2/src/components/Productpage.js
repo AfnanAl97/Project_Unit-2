@@ -1,12 +1,15 @@
 import { useSelector } from "react-redux";
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from "react-redux";
 import Footer from "./Footer";
 import Search from "./Search";
 import Filter from "./Filter";
 import { FaHeart } from "react-icons/fa";
+import {setWish} from "../reducers/wishlist/action"
 
 function Productpage() {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const state = useSelector((state) => {
         return {
@@ -16,16 +19,22 @@ function Productpage() {
         };
       });
 
+      const addwish = (e) =>{
+        // console.log(e.name);
+        const action = setWish(e);
+        dispatch(action);
+        navigate(`/Wishlist`);
+    }
+
     return (
         <>
             <Filter/>
             <div className="container">
                 <Search/>
                 <div className="cards">
-                    {console.log(state.filteredProducts)}
                 {state.filteredProducts !== undefined ? (state.filteredProducts.map((e)=>{return(
                     <div className="card">
-                        <div><FaHeart className="wish" onClick={() => {navigate(`/Wishlist`)}}/></div>
+                        <div><FaHeart className="wish" onClick={() => {addwish(e)}}/></div>
                         <img className="img" src={e.image} alt="" onClick={() => {navigate(`/product/${e.id}`)}}/>
                         <h3 onClick={() => {navigate(`/product/${e.id}`)}}>{e.name}</h3>
                         <p>{e.description}</p>
@@ -35,7 +44,7 @@ function Productpage() {
                         </div>
                     </div>) })) : state.searchresult !== undefined ?(state.searchresult.map((e)=>{return(
                     <div className="card">
-                        <div ><FaHeart className="wish" onClick={() => {navigate(`/Wishlist`)}}/></div>
+                        <div ><FaHeart className="wish" onClick={() => {addwish(e)}}/></div>
                         <img className="img" src={e.image} alt="" onClick={() => {navigate(`/product/${e.id}`)}}/>
                         <h3 onClick={() => {navigate(`/product/${e.id}`)}}>{e.name}</h3>
                         <p>{e.description}</p>
@@ -45,7 +54,7 @@ function Productpage() {
                         </div>
                     </div>) })) :(state.products.map((e)=>{return(
                     <div className="card">
-                        <div><FaHeart className="wish" onClick={() => {navigate(`/Wishlist`)}}/></div>
+                        <div><FaHeart className="wish" onClick={() => {addwish(e)}}/></div>
                         <img className="img" src={e.image} alt="" onClick={() => {navigate(`/product/${e.id}`)}}/>
                         <h3 onClick={() => {navigate(`/product/${e.id}`)}}>{e.name}</h3>
                         <p>{e.description}</p>
