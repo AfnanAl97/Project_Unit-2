@@ -7,7 +7,6 @@ import Cart from './components/Cart';
 import React from 'react';
 
 import {BrowserRouter, Routes, Route} from "react-router-dom";
-import { withStatement } from '@babel/types';
 
 
 function App() {
