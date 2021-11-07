@@ -1,16 +1,16 @@
-import './App.css';
 import Footer from './components/Footer';
-import Header from './components/Header';
-import Productpage from './components/Productpage';
+import Header from "./components/Header";
+
 
 function App() {
-  return (
-    <>
-    <Header/>
-    <Productpage/>
-    <Footer/>
-    </>
-  );
-}
+
+    return (
+      <div className="App">
+
+        <Header />
+        {/* <Footer  itemsPerPage={4}/> */}
+      </div>
+    );
+  }
 
 export default App;
