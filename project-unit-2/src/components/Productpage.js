@@ -9,7 +9,7 @@ import Filter from "./Filter";
 function Productpage() {
     // const dispatch = useDispatch();
     const navigate = useNavigate();
-    
+
     const state = useSelector((state) => {
         return {
             products: state.productsReducer.products,
