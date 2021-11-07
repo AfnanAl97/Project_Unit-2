@@ -227,20 +227,26 @@ const initialState = {
 
 const productsReducer = (state = initialState, { type, payload }) => {
     switch (type) {
-      // the payload is an array
-      case "SET_PRODUCTS":
-        return {
-            products: payload,
-            searchresult: [],
-        };
-      // the payload is an array
-      case "SEARCH_PRODUCTS":
-        return {
-            products: state.products,
-            searchresult: payload,
-        };
-      default:
-        return state;
+        // the payload is an array
+        case "SET_PRODUCTS":
+            return {
+                products: payload,
+                searchresult: [],
+            };
+        // the payload is an array
+        case "SEARCH_PRODUCTS":
+            return {
+                products: state.products,
+                searchresult: payload,
+            };
+        case "FILTERING_PRODUCTS":
+            return{
+                products: state.products,
+                searchresult: [],
+                filteredProducts: payload,
+            };
+        default:
+            return state;
     }
   };
   

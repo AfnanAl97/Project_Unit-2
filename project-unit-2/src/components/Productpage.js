@@ -9,11 +9,12 @@ import Filter from "./Filter";
 function Productpage() {
     // const dispatch = useDispatch();
     const navigate = useNavigate();
-    
+
     const state = useSelector((state) => {
         return {
             products: state.productsReducer.products,
             searchresult: state.productsReducer.searchresult,
+            filteredProducts : state.productsReducer.filteredProducts,
         };
       });
 
@@ -23,8 +24,8 @@ function Productpage() {
             <div className="container">
                 <Search/>
                 <div className="cards">
-                {state.searchresult !== undefined ? 
-                (state.searchresult.map((e)=>{return(
+                {state.filteredProducts !== undefined ? 
+                (state.filteredProducts.map((e)=>{return(
                 <div className="card">
                     <img className="img" src={e.image} alt="" onClick={() => {navigate(`/product/${e.id}`)}}/>
                     <h3 onClick={() => {navigate(`/product/${e.id}`)}}>{e.name}</h3>
