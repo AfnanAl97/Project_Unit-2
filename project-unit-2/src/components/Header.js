@@ -10,8 +10,8 @@ function Header() {
 
       <ul className="naveg" dir="rtl">
         <li><button>Join Us</button></li>
-        <li><Link id="heart" to="/"><FaHeart/></Link></li>
-        <li><Link id="shop" to="/"><FaShoppingBasket/></Link></li>
+        <li><Link id="heart" to="/Wishlist"><FaHeart/></Link></li>
+        <li><Link id="shop" to="/cart"><FaShoppingBasket/></Link></li>
       </ul>
   </div>
     {/* <div className="header">
