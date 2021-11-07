@@ -221,22 +221,32 @@ const initialState = {
             image : "https://www.jarir.com/media//catalog/product/5/6/567275.jpg"
         }
     ],
+    searchresult : [],
+    filteredProducts : [],
 };
 
 const productsReducer = (state = initialState, { type, payload }) => {
     switch (type) {
-      // the payload is an array
-      case "SET_PRODUCTS":
-        return {
-            products: payload,
-        };
-      // the payload is an array
-      case "SEARCH_PRODUCTS":
-        return {
-            products: payload,
-        };
-      default:
-        return state;
+        // the payload is an array
+        case "SET_PRODUCTS":
+            return {
+                products: payload,
+                searchresult: [],
+            };
+        // the payload is an array
+        case "SEARCH_PRODUCTS":
+            return {
+                products: state.products,
+                searchresult: payload,
+            };
+        case "FILTERING_PRODUCTS":
+            return{
+                products: state.products,
+                searchresult: [],
+                filteredProducts: payload,
+            };
+        default:
+            return state;
     }
   };
   

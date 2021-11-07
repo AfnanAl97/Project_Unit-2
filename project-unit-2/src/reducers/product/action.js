@@ -13,3 +13,11 @@ export const searching = (products) => {
       payload: products,
     };
 };
+
+export const filtering = (products) => {
+  // products: is an array of objects
+  return {
+    type: "FILTERING_PRODUCTS",
+    payload: products,
+  };
+};
