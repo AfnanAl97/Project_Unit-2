@@ -221,6 +221,8 @@ const initialState = {
             image : "https://www.jarir.com/media//catalog/product/5/6/567275.jpg"
         }
     ],
+    searchresult : [],
+    filteredProducts : [],
 };
 
 const productsReducer = (state = initialState, { type, payload }) => {
@@ -229,11 +231,13 @@ const productsReducer = (state = initialState, { type, payload }) => {
       case "SET_PRODUCTS":
         return {
             products: payload,
+            searchresult: [],
         };
       // the payload is an array
       case "SEARCH_PRODUCTS":
         return {
-            products: payload,
+            products: state.products,
+            searchresult: payload,
         };
       default:
         return state;
