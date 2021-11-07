@@ -1,5 +1,8 @@
 const initialState = {
-  users: [],
+  users: [{
+    username:"Afnan",
+    password:"1234"
+  }],
 };
 
 const usersReducer = (state = initialState, { type, payload }) => {
@@ -7,12 +10,15 @@ const usersReducer = (state = initialState, { type, payload }) => {
       // the payload is an array
       case "LOG_IN":
         return {
-          videos: payload,
+          users: payload,
+          // const oldUser = users.findIndex(function(user){
+          //   return user.username === users.username
+          // })
         };
       // the payload is an array
       case "SIGN_UP":
         return {
-          videos: payload,
+          users: payload,
         };
       default:
         return state;

@@ -1,26 +1,45 @@
 import {useState} from 'react';
-import validation from './validation';
+import Validation from './Validation';
+import { useDispatch, useSelector } from "react-redux";
 
 function Signup() {
 
+    const dispatch = useDispatch();
+
     // This array will be filled out by the user 
     const [values, setValues] = useState({
-        username:"",
+        username:"", 
         password:""
     });
+     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+     const state = useSelector((state) => {
+        return {
+            values: state.usersReducer.users,
+        };
+      });
+
+      const getUser= (event) => {
+        setValues(event.target.value)
+      }
+      const getPassword= (event) => {
+        setValues(event.target.value)
+      }
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     const [errors, setErrors] = useState({});
 
-    const handleChange = (event) => {
-        setValues({
-            ...values,
-            [event.target.name]: event.target.value,
-        })
-    }
+    // const handleChange = (event) => {
+    //     setValues({
+    //         ...values,
+    //         [event.target.name]: event.target.value,
+    //     })
+    // }
 
+    //Do i make it action ???!!!
     const handleFormSubmit = (event) =>{
         event.preventDefault();
-        setErrors(validation(values));
+        setErrors(Validation(values));
     }
     return (
         <div className="container2">
@@ -36,7 +55,7 @@ function Signup() {
                          type="text" 
                          name="username" 
                          value={values.username}
-                         onChange={handleChange}
+                         onChange={getUser}
                          />
                          {errors.username && <p className="error">{errors.username}</p>}
                     </div>
@@ -47,7 +66,7 @@ function Signup() {
                          type="password" 
                          name="password" 
                          value={values.password}
-                         onChange={handleChange}
+                         onChange={getPassword}
                          />
                          {errors.password && <p className="error">{errors.password}</p>}
                     </div>

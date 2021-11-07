@@ -3,13 +3,20 @@ import Productpage from './components/Productpage';
 import Form from './components/Form';
 import React from 'react';
 
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
+
 function App() {
   return (
-    <>
-    <Header/>
-    {/* <Form /> */}
-    <Productpage/>
-    </>
+    <BrowserRouter>
+    {/* <Header/> */}
+    <Form />
+    {/* <Productpage/> */}
+    </BrowserRouter>
   );
 }
 
