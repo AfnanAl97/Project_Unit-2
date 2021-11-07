@@ -21,8 +21,9 @@ body {
   border-bottom:  rgba(123, 120, 161, 0.13) solid 1px;
 }
 
-.header h2{
+#logo{
   color: #4761A3;
+  text-decoration: none;
 }
 
 .logo{
@@ -80,7 +81,7 @@ body {
   border-top: 0px;
   overflow-x: hidden;
   display: grid;
-  grid-template-rows: 50px 250px 200px 70px;
+  grid-template-rows: 50px 250px 70px;
 }
 
 .form-1 , .form-2 {
@@ -136,7 +137,7 @@ label {
   border: rgba(123, 120, 161, 0.13) solid 1px;
   border-radius: 30px;
   display: grid;
-  grid-template-rows: 230px 40px 40px 70px;
+  grid-template-rows: auto 230px 40px 40px 70px;
   padding: 20px;
 }
 .card:hover{
@@ -157,6 +158,7 @@ label {
 
 .card img{
   width: 230px;
+  justify-self: center;
 }
 
 .PriceAndBtn{
@@ -171,7 +173,6 @@ label {
 
 #cart{
   background-color: #4761A3;
-  z-index: 1;
   color: #ffffff;
   width: 95px;
   height: 30px;
@@ -313,8 +314,16 @@ button:active {
     border: rgba(123, 120, 161, 0.13) solid 1px;
     border-radius: 30px;
     display: grid;
-    grid-template-rows: auto auto auto auto;
+    grid-template-rows: auto auto auto auto auto;
     padding: 20px;
+}
+
+.wish{
+  color: #4761A3;
+  cursor: pointer;
+}
+.wish:hover{
+  color:rgb(160, 23, 23);
 }
 
 .details img{
