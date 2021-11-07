@@ -18,6 +18,9 @@ const Header = () => {
         <hr />
       </header>
     </div>
+      <div className="header">
+      <h1>Header</h1>
+      </div>
   );
 }
 export default Header;
