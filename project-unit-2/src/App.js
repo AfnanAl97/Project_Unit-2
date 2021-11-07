@@ -5,23 +5,6 @@ import ProductDetails from './components/ProductDetails';
 // import Wishlistpage from './components/Wishlistpage';
 import Cart from './components/Cart';
 import React from 'react';
-
-<<<<<<< HEAD
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  Link
-} from "react-router-dom";
-
-function App() {
-  return (
-    <BrowserRouter>
-    {/* <Header/> */}
-    <Form />
-    {/* <Productpage/> */}
-    </BrowserRouter>
-=======
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 
 
@@ -37,7 +20,6 @@ function App() {
         </Routes>
     </BrowserRouter>
     </>
->>>>>>> e0c4201fb2e31a896e123fd36cc501250fcee6e7
   );
 }
 export default App

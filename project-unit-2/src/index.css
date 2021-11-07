@@ -297,18 +297,6 @@ button:active {
   transform: translateY(2px);
 }
 
-
-/* .form-success {
-  display: flex;
-  justify-content: center;
-  margin-top: 250px;
-  min-width: 370px;
-  color: orangered;
-<<<<<<< HEAD
-} */
-=======
-}
-
 /* product details start */
 
 .parent{
@@ -339,7 +327,6 @@ button:active {
 
 
 /* ******************************************************************************************************************* */
->>>>>>> e0c4201fb2e31a896e123fd36cc501250fcee6e7
 @media (max-width: 810px), (max-width: 1368px) {
   .card{
     width: 250px;
