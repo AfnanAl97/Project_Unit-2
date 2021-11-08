@@ -12,15 +12,9 @@ const initialState = {
 const usersReducer = (state = initialState, { type, payload }) => {
     switch (type) {
       // the payload is an array
-      case "LOG_IN":
-        return {
-          users: payload,
-          // if(users.username == "Admin" && users.password == "4444") 
-        };
-      // the payload is an array
       case "SIGN_UP":
         return {
-          users: payload,
+          users: [...state.users, payload]
         };
       default:
         return state;
