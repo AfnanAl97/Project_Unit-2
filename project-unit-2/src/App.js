@@ -1,7 +1,7 @@
 import Header from './components/Header';
 import Productpage from './components/Productpage';
 import ProductDetails from './components/ProductDetails';
-// import Adminpage from './components/Adminpage';
+import Adminpage from './components/Adminpage';
 import Wishlistpage from './components/Wishlistpage';
 import Cart from './components/Cart';
 import React from 'react';
@@ -22,6 +22,7 @@ function App() {
           <Route path="/Wishlist" element={<Wishlistpage/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/signup" element={<Signup/>}/>
+          <Route path="/Admin" element={<Adminpage/>}/>
 
         </Routes>
     </BrowserRouter>
