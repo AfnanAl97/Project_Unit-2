@@ -7,7 +7,6 @@ import { FaSignOutAlt } from "react-icons/fa";
 import { logout } from "../reducers/SignupLogin/action";
 import { useDispatch } from "react-redux";
 
-
 function Header() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
