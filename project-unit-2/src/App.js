@@ -13,7 +13,7 @@ import Signup from './components/Signup';
 function App() {
   return (
     <>
-    <BrowserRouter>
+     <BrowserRouter>
     <Header/>
         <Routes>
           <Route path="/" element={<Productpage/>} />
@@ -25,7 +25,7 @@ function App() {
           <Route path="/Admin" element={<Adminpage/>}/>
 
         </Routes>
-    </BrowserRouter>
+    </BrowserRouter> 
     </>
   );
 }

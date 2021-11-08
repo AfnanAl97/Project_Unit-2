@@ -217,8 +217,6 @@ label {
 }
 /* search style end */
 
-/**********************************************SIGN UP & LOGIN STYLE**********************************************/
-
 /* Forms Styling start */
 /* * {
   margin: 0;
@@ -315,6 +313,8 @@ button:active {
   transform: translateY(2px);
 }
 
+/* Forms Styling end */
+
 /* product details start */
 
 .parent{
@@ -402,9 +402,43 @@ button:active {
 
 /* wish list end */
 
+/*Admin page start*/
+
+.admin-page {
+  justify-content: center;
+  display: grid;
+  row-gap: 10px;
+  margin: 10%;
+}
+.admin-card {
+  width: 280px;
+  height: 350px;
+  background: #ffffff;
+  border: rgba(123, 120, 161, 0.13) solid 1px;
+  border-radius: 30px;
+  display: grid;
+  padding: 20px;
+  justify-content: center;
+}
+.admin-btn a{
+  display: grid;
+  color: #4761A3;
+  text-decoration: none;
+  
+}
+.admin-btnn {
+  justify-self: center;
+  align-self: center;
+  font-size: 40px;
+}
+
+.admin-btnn p{
+  font-size: 40px;
+}
 
 
-/* ******************************************************************************************************************* */
+/*Admin page end*/
+
 @media (max-width: 810px), (max-width: 1368px) {
   .card{
     width: 250px;
