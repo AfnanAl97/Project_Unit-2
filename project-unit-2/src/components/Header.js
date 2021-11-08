@@ -6,6 +6,7 @@ import { FaShoppingBasket } from "react-icons/fa";
 
 const Header = () => {
   return (
+    <>
     <div id="heade">
       <header className="m_header"  >
         <nav className="m_nav">Header ttitle </nav>
@@ -21,6 +22,7 @@ const Header = () => {
       <div className="header">
       <h1>Header</h1>
       </div>
+      </>
   );
 }
 export default Header;
