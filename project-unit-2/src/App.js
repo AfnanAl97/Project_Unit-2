@@ -5,8 +5,9 @@ import ProductDetails from './components/ProductDetails';
 import Wishlistpage from './components/Wishlistpage';
 import Cart from './components/Cart';
 import React from 'react';
-
 import {BrowserRouter, Routes, Route} from "react-router-dom";
+import Login from './components/Login';
+import Signup from './components/Signup';
 
 
 function App() {
@@ -19,6 +20,9 @@ function App() {
           <Route path="/product/:id" element={<ProductDetails/>} />
           <Route path="/cart" element={<Cart/>} />
           <Route path="/Wishlist" element={<Wishlistpage/>}/>
+          <Route path="/login" element={<Login/>}/>
+          <Route path="/signup" element={<Signup/>}/>
+
         </Routes>
     </BrowserRouter>
     </>
