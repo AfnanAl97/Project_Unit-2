@@ -7,6 +7,7 @@ function Signup() {
 
     const dispatch = useDispatch() 
     const navigate = useNavigate();
+
     // This array will be filled out by the user 
     const [tempUser, setTempUser] = useState("");
     const [tempPass, setTempPass] = useState("");
@@ -15,35 +16,34 @@ function Signup() {
         password:""
     });
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
- const state = useSelector((state) => {
-    return {
-        users: state.usersReducer.users,
-    };
+    const state = useSelector((state) => {
+        return {
+            users: state.usersReducer.users,
+            currentUser: state.usersReducer.currentUser,
+        };
   });
   
-  const getUser= (event) => {
-      setTempUser(event.target.value)
-  }
-  const getPassword= (event) => {
-      setTempPass(event.target.value)
-  }
+    const getUser= (event) => {
+        setTempUser(event.target.value)
+    }
+    const getPassword= (event) => {
+        setTempPass(event.target.value)
+    }
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     const handleFormSubmit = (event) => {
         event.preventDefault();
         validation();
-        if(errors.password == "" && errors.username == ""){
+        if(errors.password === "" && errors.username === ""){
+            let id = state.users.length +1;
             const newUser = {
+                id: id,
                 username: tempUser,
-                password:tempPass
+                password:tempPass,
             }
+
             console.log(newUser);
-            console.log(state.users);
             const action = signup(newUser);
             dispatch(action);
-            console.log(state.users);
             navigate(`/`);
         }
     }
@@ -94,5 +94,4 @@ function Signup() {
         </div>
     )
 }
-
 export default Signup;
