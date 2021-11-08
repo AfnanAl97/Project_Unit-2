@@ -15,9 +15,7 @@ const usersReducer = (state = initialState, { type, payload }) => {
       case "LOG_IN":
         return {
           users: payload,
-          // const oldUser = users.findIndex(function(user){
-          //   return user.username === users.username
-          // })
+          // if(users.username == "Admin" && users.password == "4444") 
         };
       // the payload is an array
       case "SIGN_UP":

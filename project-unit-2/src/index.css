@@ -95,7 +95,8 @@ body {
 }
 #filtering{
   padding: 10px;
-  width: 170px;
+  width: 100px;
+  height: 40px;
   justify-self: center;
   margin: 20px 0;
   background-color: #4761A3;
