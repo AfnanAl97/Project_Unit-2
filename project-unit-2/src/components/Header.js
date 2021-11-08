@@ -1,28 +1,20 @@
-import React from 'react'
-import "./header.css";
 import { FaHeart } from "react-icons/fa";
 import { FaShoppingBasket } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
-
-const Header = () => {
+function Header() {
   return (
     <>
-    <div id="heade">
-      <header className="m_header"  >
-        <nav className="m_nav">Header ttitle </nav>
-        <ul id="li" className="navge" dir="rtl">
-          <li><a><b>sing up</b></a></li>
-          <li><a><b>log in</b></a></li>
-          <li><a><FaHeart /></a></li>
-          <li><a><FaShoppingBasket /></a></li>
-        </ul>
-        <hr />
-      </header>
-    </div>
-      <div className="header">
-      <h1>Header</h1>
-      </div>
-      </>
+    <div className="header">
+      <div className="logo"><h2><Link id="logo" to="/">Tech Store</Link></h2></div>
+
+      <ul className="naveg" dir="rtl">
+        <li><button>Join Us</button></li>
+        <li><Link id="heart" to="/Wishlist"><FaHeart/></Link></li>
+        <li><Link id="shop" to="/cart"><FaShoppingBasket/></Link></li>
+      </ul>
+  </div>
+    </>
   );
 }
 export default Header;

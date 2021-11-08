@@ -156,7 +156,7 @@ const initialState = {
         },
         {
             id : 20,
-            name : "Iphone 13",
+            name : "iPhone 13",
             description: "Apple iPhone 13 Pro 256 GB, Pacific Blue, 5G",
             price : 7199 ,
             category : "Mobiles",
@@ -197,7 +197,7 @@ const initialState = {
         },
         {
             id : 25,
-            name : "Ipad",
+            name : "iPad",
             price : 3499,
             category : "Tablets",
             description : "Apple iPad mini 6 Tablet PC - 5G Support 8.3', 64 GB, Purple",
@@ -227,20 +227,26 @@ const initialState = {
 
 const productsReducer = (state = initialState, { type, payload }) => {
     switch (type) {
-      // the payload is an array
-      case "SET_PRODUCTS":
-        return {
-            products: payload,
-            searchresult: [],
-        };
-      // the payload is an array
-      case "SEARCH_PRODUCTS":
-        return {
-            products: state.products,
-            searchresult: payload,
-        };
-      default:
-        return state;
+        // the payload is an array
+        case "SET_PRODUCTS":
+            return {
+                products: payload,
+                searchresult: [],
+            };
+        // the payload is an array
+        case "SEARCH_PRODUCTS":
+            return {
+                products: state.products,
+                searchresult: payload,
+            };
+        case "FILTERING_PRODUCTS":
+            return{
+                products: state.products,
+                searchresult: [],
+                filteredProducts: payload,
+            };
+        default:
+            return state;
     }
   };
   

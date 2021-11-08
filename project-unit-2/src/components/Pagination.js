@@ -1,4 +1,5 @@
 import React from 'react';
+import './Footer.css'
 
 const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
   const pageNumbers = [];
@@ -7,18 +8,20 @@ const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
     pageNumbers.push(i);
   }
 
+
   return (
-    <nav>
-      <ul className='pagination'>
+  
+      <div className='pagination'>
         {pageNumbers.map(number => (
-          <li key={number} className='page-item'>
-            <a onClick={() => paginate(number)} href='!#' className='page-link'>
+    
+    <div className='page-item'>
+            <a onClick={() => paginate(number)}  className='page-link'>
               {number}
             </a>
-          </li>
+       </div>
         ))}
-      </ul>
-    </nav>
+      </div>
+ 
   );
 };
 
