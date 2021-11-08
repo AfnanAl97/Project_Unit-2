@@ -1,31 +1,24 @@
-import {useState, useEffect} from 'react';
-// import Validation from './Validation';
-import { useDispatch, useSelector } from "react-redux";
-// import Signup from './Signup';
+import {useState} from 'react';
+import { useSelector } from "react-redux";
 import { useNavigate } from 'react-router-dom';
-import {LoginUser} from "../reducers/SignupLogin/action"
 
 function Login(){
     
-        const dispatch = useDispatch() 
         const navigate = useNavigate();
         // This array will be filled out by the user 
         const [tempUser, setTempUser] = useState("");
         const [tempPass, setTempPass] = useState("");
-        const [values, setValues] = useState([{
-            username:"",
-            password:""
-        }]);
         const [errors, setErrors] = useState({
             username:"",
-            password:""
+            password:"",
         });
+        const [emsg , setemsg] = useState("");
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
      const state = useSelector((state) => {
         return {
-            values: state.usersReducer.users,
+            users: state.usersReducer.users,
         };
       });
       
@@ -36,64 +29,59 @@ function Login(){
           setTempPass(event.target.value)
       }
 
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    
-    
-        // const handleChange = (event) => {
-        //     setValues({
-        //         ...values,
-        //         [event.target.name]: event.target.value,
-        //     })
-        // }
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////    
+        const handleFormSubmit = (event) => {
+            event.preventDefault();
+            validation();
+            if(errors.password == "" && errors.username == ""){
+                const theuser = {
+                username: tempUser,
+                password:tempPass
+                } 
+                state.users.map((e)=>{
+                    if((e.username == theuser.username) && (e.password == theuser.password)){
+                        if(e.username === "Admin"){
+                            navigate("/Admin");
+                            // console.log("Hi Admin");
+                        }
+                        else{
+                            navigate("/");
+                            // console.log("Hi user ;)");
+                        }
+                    } else{
+                        setemsg("You don't have account please Sign Up");
+                         
+                    }
+                })
+            }
+        }
 
         const handleRegister = () => {
             navigate("/signup");
         }
-        useEffect(() => {
-            const action=LoginUser(values)
-            dispatch(action)
-        },[values])
-    
-        const handleFormSubmit = (event) => {
-            event.preventDefault();
-
-            validation();
-
-            if(errors.password == "" && errors.username == ""){
-            
-            const state2 = {
-            username: tempUser,
-            password:tempPass
-            }
-            let arr = [state2]
-            setValues(arr)
-        }
-            // setErrors((values));
-        }
 
         const validation = () => {
-
             let error={
                 username:"",
-                password:""
+                password:"",
             }
              if(!tempUser){
                 error.username="Username is required."
+                setemsg("");
              }
              if(!tempPass){
                  error.password="Password is required."
+                 setemsg("");
              } else if(tempPass.length < 4){
                  error.password="Password must be more than four characters."
-             }
-             if(state.values[0] === null){
-                 error.username="You don't have account. Please click on create an account"
+                 setemsg("");
+
              }
              setErrors(error)
         }
              
         return (
             <div className="container2">
-                {/* <button className="joinUs" onClick={test}>Join Us</button> */}
                 <div className="app-wrapper">
                     <div>
                         <h2 className="title">Login</h2>
@@ -101,32 +89,18 @@ function Login(){
                     <form className="form-wrapper">
                         <div className="username">
                             <label className="label">Username</label>
-                            <input 
-                             className="input"
-                             type="text" 
-                             name="username" 
-                             value={values.username}
-                             onChange={getUser}
-                             />
-                              
+                            <input className="input" type="text" name="username" value={tempUser}onChange={getUser}/>  
                              {errors.username && <p className="error">{errors.username}</p>}
                         </div>
                         <div className="password">
                             <label className="label">Password</label>
-                            <input 
-                             className="input" 
-                             type="password" 
-                             name="password" 
-                             value={values.password}
-                             onChange={getPassword}
-                             />
+                            <input className="input" type="password" name="password" value={tempPass}onChange={getPassword}/>
                              {errors.password && <p className="error">{errors.password}</p>}
                         </div>
                         <div>
-                            <button className="submit" onClick={handleFormSubmit}>
-                                Login
-                            </button>
-                        <p className="message">Not registered? <a href="#" onClick={handleRegister}>Create an account</a></p>
+                            <button className="submit" onClick={handleFormSubmit}> Login </button>
+                            {emsg && <p className="error-msg">{emsg}</p>}
+                            <p className="message">Not registered? <a onClick={handleRegister}>Create an account</a></p>
                         </div>
                     </form>
                 </div>
