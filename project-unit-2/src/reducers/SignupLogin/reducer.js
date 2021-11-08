@@ -1,9 +1,11 @@
 const initialState = {
   users: [{
+    id:"1",
     username: "Admin",
     password:"4444"
   },
   {
+    id:"2",
     username: "Afnan",
     password:"1234"
   }],
@@ -15,7 +17,7 @@ const usersReducer = (state = initialState, { type, payload }) => {
       case "LOG_IN":
         return {
           users: payload,
-          // if(users.username == "Admin" && users.password == "4444") 
+          
         };
       // the payload is an array
       case "SIGN_UP":
