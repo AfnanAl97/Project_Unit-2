@@ -119,8 +119,74 @@ label {
   padding: 5px;
 }
 /* filter style end */
+/* //////////////////////////////// */
+.cards2{
+  display: grid;
+  grid-template-columns: auto auto auto;
+  row-gap: 10px;
+  column-gap: 10px;
+  margin: 3% 0 0 0;
+  row-gap: 35px;
+}
+.card2{
+  width: 280px;
+  /* height: 350px; */
+  background: #ffffff;
+  border: rgba(123, 120, 161, 0.13) solid 1px;
+  border-radius: 30px;
+  display: grid;
+  grid-template-rows: auto 230px 40px 40px 70px;
+  padding: 20px;
+}
+.card2:hover{
+  box-shadow: 0px 10px 8px 0 rgba(0,0,0,0.2);
+}
 
+.card2 h3{
+  font-size: 18px;
+}
+.card2 p{
+  text-overflow: ellipsis;
+  overflow: hidden; 
+  width: 270px; 
+  height: 1.2em; 
+  white-space: nowrap;
+  font-size: 14px;
+}
 
+.card2 img {
+  width: 230px;
+  justify-self: center;
+}
+
+.PriceAndBtn2{
+  display: grid;
+  grid-template-columns: 90px auto;
+}
+
+#price2{
+  /* margin-left: 30%; */
+  font-weight: 700;
+}
+
+#cart2{
+  background-color: #4761A3;
+  color: #ffffff;
+  width: 95px;
+  height: 30px;
+  justify-self: end;
+  align-self: center;
+  border-radius: 10px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+  border: 0px
+}
+#cart2:hover{
+  background-color: #607cc4;
+
+}
+
+/* ///////////////////////////////////// */
 /* cards style start */
 .cards{
   display: grid;

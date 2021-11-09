@@ -234,6 +234,12 @@ const productsReducer = (state = initialState, { type, payload }) => {
                 products: [...state.products,payload],
                 searchresult: [],
             };
+        case "DELETE_PRODUCTS":
+            console.log(payload);
+            return {
+                products: [...state.products,payload],
+                searchresult: [],
+                };
         // the payload is an array
         case "SEARCH_PRODUCTS":
             return {

@@ -1,9 +1,12 @@
 import React from "react";
 import {setProducts} from "../reducers/product/action";
 import {useDispatch} from "react-redux";
+import { useSelector } from "react-redux";
+import { useNavigate } from 'react-router-dom';
 
 function Adminpage() {
 
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     let arrayProduct = {};
 
@@ -11,7 +14,6 @@ function Adminpage() {
         
         let inputId = prompt("Product id: ")
         let inputName = prompt("Product name: ")
-        // console.log(inputVal)
         let inputPrice = prompt("Product price: ")
         let inputDescription = prompt("Product description: ")
         let inputCategory = prompt("Product category: ")
@@ -26,8 +28,9 @@ function Adminpage() {
         }
         const action = setProducts(arrayProduct) 
         dispatch(action)
-        
     }
+    const state = useSelector((state) => {
+        return {products: state.productsReducer.products,}});
 
     return (
         <>
@@ -39,6 +42,18 @@ function Adminpage() {
             </form>
            </div>
          </div>
+        </div>
+        {/* //////////////////////////////////////////////////////////////////// */}
+        <div className="cards2">
+            {state.products.map((e)=>{
+           <div className="card2">
+            <img className="img" src={e.image} alt="" onClick={() => {navigate(`/product/${e.id}`)}}/>
+                        <h3 onClick={() => {navigate(`/product/${e.id}`)}}>{e.name}</h3>
+                        <p>{e.description}</p>
+                        <div className="PriceAndBtn2">
+                        <p id="price2">{e.price} SAR</p>
+                </div>
+           </div>})}
         </div>
         </>
 
