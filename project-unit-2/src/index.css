@@ -53,6 +53,16 @@ body {
 
   }
 
+  #logout{
+    color: rgb(51, 51, 51);
+    padding: 10px;
+
+  }
+
+  #logout:hover{
+    color:#4761A3
+  }
+
   #heart:hover{
     color:rgb(160, 23, 23);
   }
@@ -95,7 +105,8 @@ body {
 }
 #filtering{
   padding: 10px;
-  width: 170px;
+  width: 100px;
+  height: 40px;
   justify-self: center;
   margin: 20px 0;
   background-color: #4761A3;
@@ -137,7 +148,6 @@ label {
   border: rgba(123, 120, 161, 0.13) solid 1px;
   border-radius: 30px;
   display: grid;
-  grid-template-rows: auto 230px 40px 40px 70px;
   padding: 20px;
 }
 .card:hover{
@@ -190,7 +200,6 @@ label {
 
 /* cards style end */
 
-
 /* search style start */
 .search{
   display: grid;
@@ -208,38 +217,55 @@ label {
 }
 /* search style end */
 
-/*******************************************************************************************************************/
-
 /* Forms Styling start */
 /* * {
   margin: 0;
   padding: 0;
 } */
+
+/* background page */
 .container2 {
-  background: white;
+  background: rgb(255, 255, 255);
   width: 100%;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+/* Box  */
 .app-wrapper {
+  margin-top: 5%;
   background-color: #fff;
-  min-width: 350px;
-  min-height: 650px;
-  padding: 30px;
+  min-width: 450px;
+  padding: 10px;
   box-sizing: border-box;
-  border-radius: 5px;
+  border-radius: 30px;
+  border: rgba(123, 120, 161, 0.13) solid 1px;
+  box-shadow: rgba(0, 0, 0, 0.041) 0px 19px 38px,
+  rgba(0, 0, 0, 0.034) 0px 15px 12px;
+
+  display:block;
 }
 .title {
   color: black;
   text-align: center;
   margin: 80px 0px 40px 0px;
 }
+.message {
+  margin: 50px 0 0;
+  color: #8f8f8f;
+  font-size: 15px;
+  text-align: center;
+}
+.message a {
+  color: #4761A3;
+  text-decoration: none;
+  cursor: pointer;
+}
 .username,
 .password {
   margin: 20px;
-  color: yellow;
+  color: rgb(10, 10, 6);
   font-size: 16px;
 }
 .password {
@@ -247,7 +273,7 @@ label {
 }
 .input {
   height: 32px;
-  font-size: 20px;
+  font-size: 15px;
   outline: none;
   width: 100%;
   border-top-style: none;
@@ -258,17 +284,25 @@ label {
 }
 .error {
   color: red;
+  
 }
+
+.error-msg{
+  color: red;
+  text-align: center;
+  font-size: 12px;
+}
+
 .submit {
   display: flex;
   text-transform: uppercase;
-  font-size: 20px;
+  font-size: 16px;
   border-radius: 25px;
   color: white;
-  padding: 10px 60px;
-  background: linear-gradient(to right, pink, green);
+  padding: 6px 30px;
+  background:  #4761A3;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
-       rgba(0, 0, 0, 0.22) 0px 15px 12px;
+              rgba(0, 0, 0, 0.22) 0px 15px 12px;
   margin: auto;
   outline: none;
   border: none;
@@ -278,13 +312,8 @@ label {
 button:active {
   transform: translateY(2px);
 }
-.form-success {
-  display: flex;
-  justify-content: center;
-  margin-top: 250px;
-  min-width: 370px;
-  color: orangered;
-}
+
+/* Forms Styling end */
 
 /* product details start */
 
@@ -373,9 +402,43 @@ button:active {
 
 /* wish list end */
 
+/*Admin page start*/
+
+.admin-page {
+  justify-content: center;
+  display: grid;
+  row-gap: 10px;
+  margin: 10%;
+}
+.admin-card {
+  width: 280px;
+  height: 350px;
+  background: #ffffff;
+  border: rgba(123, 120, 161, 0.13) solid 1px;
+  border-radius: 30px;
+  display: grid;
+  padding: 20px;
+  justify-content: center;
+}
+.admin-btn a{
+  display: grid;
+  color: #4761A3;
+  text-decoration: none;
+  
+}
+.admin-btnn {
+  justify-self: center;
+  align-self: center;
+  font-size: 40px;
+}
+
+.admin-btnn p{
+  font-size: 40px;
+}
 
 
-/* ******************************************************************************************************************* */
+/*Admin page end*/
+
 @media (max-width: 810px), (max-width: 1368px) {
   .card{
     width: 250px;

@@ -6,6 +6,7 @@ function Search() {
     const [searchTerm, setSearchTerm] = useState("");
     const handleChange = e => {
         setSearchTerm(e.target.value);
+        Sear();
       };
 
     const dispatch = useDispatch();
@@ -16,14 +17,14 @@ function Search() {
         };
       });
 
-    useEffect(() => {
+    const Sear = () => {
         const results = state.products.filter(e =>
           e.name.includes(searchTerm)
         );
         console.log(results);
         const action = searching(results);
         dispatch(action);
-      }, [searchTerm]);
+    };
 
     return (
         <>

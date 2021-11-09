@@ -229,8 +229,9 @@ const productsReducer = (state = initialState, { type, payload }) => {
     switch (type) {
         // the payload is an array
         case "SET_PRODUCTS":
+            console.log(payload);
             return {
-                products: payload,
+                products: [...state.products,payload],
                 searchresult: [],
             };
         // the payload is an array
