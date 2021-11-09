@@ -1,3 +1,10 @@
+export const getProducts = (products) => {
+  // products: is an array of objects
+  return {
+    type: "GET_PRODUCTS",
+    payload: products,
+  };
+};
 export const setProducts = (products) => {
     // products: is an array of objects
     return {

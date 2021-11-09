@@ -1,11 +1,17 @@
+
+import React from 'react';
+
 function Footer() {
 
-    return (
-        <>
-        </>
 
-    );
-  }
-  
-  export default Footer;
-  
+
+  return (
+    <div>
+
+    </div>
+  );
+}
+
+
+export default Footer ;
+
