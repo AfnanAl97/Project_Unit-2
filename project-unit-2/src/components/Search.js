@@ -1,11 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect ,useState } from "react";
+import { useState } from "react";
 import {searching} from "../reducers/product/action"
 function Search() {
 
     const [searchTerm, setSearchTerm] = useState("");
     const handleChange = e => {
         setSearchTerm(e.target.value);
+        sear();
       };
 
     const dispatch = useDispatch();
@@ -16,14 +17,14 @@ function Search() {
         };
       });
 
-    useEffect(() => {
+    const sear = () => {
         const results = state.products.filter(e =>
-          e.name.includes(searchTerm)
+          e.name.toLowerCase().includes(searchTerm)
         );
         console.log(results);
         const action = searching(results);
         dispatch(action);
-      }, [searchTerm]);
+      };
 
     return (
         <>
