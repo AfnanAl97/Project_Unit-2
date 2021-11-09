@@ -1,8 +1,8 @@
-export const setWish = (product) => {
+export const setWish = (wish) => {
     // product: is an array of todo objects
     return {
       type: "SET_WISH",
-      payload: product,
+      payload: wish,
     };
   };
   
