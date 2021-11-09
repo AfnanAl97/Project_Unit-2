@@ -125,7 +125,7 @@ const initialState = {
         {
             id : 16,
             name : "MSI GP76 Leopard 11UG ",
-            price : 9999,
+            price : 10000,
             category : "Laptops",
             description : "processor type 	Intel Core i7-11800H graphics card NVIDIA GeForce RTX 3070 (8 GB) display type FHD-LED 144 Hz display size 17.3 operating system Windows 10 product type Gaming Laptop model series (MSI) GP generation/release 2021 color Black operating system architecture 64 bit processor speed 2.3 GHz VR (virtual reality) enabled VR Enabled capacity 1 TB SSD RAM 16 GB RAM ",
             image : "https://www.jarir.com/media//catalog/product/5/6/563884.jpg"
@@ -227,12 +227,16 @@ const initialState = {
 
 const productsReducer = (state = initialState, { type, payload }) => {
     switch (type) {
+        case "GET_PRODUCTS":
+            return{
+                products: payload,
+            };
         // the payload is an array
         case "SET_PRODUCTS":
             console.log(payload);
             return {
                 products: [...state.products,payload],
-                searchresult: [],
+                searchresult: state.searchresult,
             };
         case "DELETE_PRODUCT":
             return {
@@ -255,7 +259,6 @@ const productsReducer = (state = initialState, { type, payload }) => {
         case "FILTERING_PRODUCTS":
             return{
                 products: state.products,
-                searchresult: [],
                 filteredProducts: payload,
             };
         default:

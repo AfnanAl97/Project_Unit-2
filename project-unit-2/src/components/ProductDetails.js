@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { FaHeart } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { setWish } from "../reducers/wishlist/action";
+import Rating from './Rating'
 
 function ProductDetails() {
   const navigate = useNavigate();
@@ -64,7 +65,8 @@ function ProductDetails() {
                       </button>)}
                     </div>
                   </div>
-                </div>
+                </div> 
+                
               );
             }
             return console.log(id);
