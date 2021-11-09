@@ -6,7 +6,9 @@ function Search() {
     const [searchTerm, setSearchTerm] = useState("");
     const handleChange = e => {
         setSearchTerm(e.target.value);
+
         sear();
+
       };
 
     const dispatch = useDispatch();
@@ -24,6 +26,7 @@ function Search() {
         console.log(results);
         const action = searching(results);
         dispatch(action);
+
       };
 
     return (

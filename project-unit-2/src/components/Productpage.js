@@ -1,7 +1,6 @@
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import Footer from "./Footer";
 import Search from "./Search";
 import Filter from "./Filter";
 import { FaHeart } from "react-icons/fa";
@@ -10,9 +9,9 @@ import {getProducts} from "../reducers/product/action"
 import { useEffect , useState } from "react";
 
 
-function Productpage() {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
+function Productpage({ products }) {
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
 
   const state = useSelector((state) => {
     return {
@@ -46,13 +45,13 @@ function Productpage() {
     dispatch(action);
     navigate(`/Wishlist`);
   };
-
-  return (
-    <>
-      <Filter />
-      <div className="container">
+console.log(state.filteredProducts)
+console.log(state.searchresult)
+    return (
+            <><Filter /><div className="container">
         <Search />
         <div className="cards">
+
           {state.searchresult !== undefined ? (state.searchresult.map((e) => {
                 return (
                   <div className="card">
@@ -131,7 +130,7 @@ function Productpage() {
                       </button>)}
                     </div>
                   </div>);
-              })) : (state.products.map((e) => {
+              })) : (products.map((e) => {
                 return (
                   <div className="card">
                     {userstate.isLoggedIn && (<div>
@@ -172,10 +171,7 @@ function Productpage() {
                   </div>);
               }))}
         </div>
-        <Footer />
-      </div>
-    </>
-  );
-}
 
+      </div></>
+ )}
 export default Productpage;
