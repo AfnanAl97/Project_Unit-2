@@ -129,7 +129,7 @@ label {
   padding: 5px;
 }
 /* filter style end */
-/* //////////////////////////////// */
+/* Admin page card start */
 .cards2{
   display: grid;
   grid-template-columns: auto auto auto;
@@ -145,8 +145,9 @@ label {
   border: rgba(123, 120, 161, 0.13) solid 1px;
   border-radius: 30px;
   display: grid;
-  grid-template-rows: auto 230px 40px 40px 70px;
   padding: 20px;
+  margin-left: 50px;
+  margin-top: 10%;
 }
 .card2:hover{
   box-shadow: 0px 10px 8px 0 rgba(0,0,0,0.2);
@@ -196,7 +197,7 @@ label {
 
 }
 
-/* ///////////////////////////////////// */
+/* Admin page card end */
 /* cards style start */
 .cards{
   display: grid;
@@ -464,6 +465,16 @@ button:active {
   justify-self: center;
   border-radius: 10px;
   border: 0px
+}
+#update{
+  background-color: #4761A3;
+  color: #ffffff;
+  width: 95px;
+  height: 20px;
+  justify-self: center;
+  border-radius: 10px;
+  border: 0px;
+  margin: 10px 0 0;
 }
 
 /* wish list end */

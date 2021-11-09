@@ -6,6 +6,20 @@ export const setProducts = (products) => {
     };
   };
 
+export const deleteProduct = (productId) => {
+    return {
+      type: "DELETE_PRODUCT",
+      payload: productId,
+    };
+};
+
+export const updateProducts = (products) => {
+  return {
+    type: "UPDATE_PRODUCTS",
+    payload: products,
+  };
+};
+
 export const searching = (products) => {
     // products: is an array of objects
     return {
@@ -21,3 +35,4 @@ export const filtering = (products) => {
     payload: products,
   };
 };
+
