@@ -238,6 +238,18 @@ const productsReducer = (state = initialState, { type, payload }) => {
                 products: [...state.products,payload],
                 searchresult: state.searchresult,
             };
+        case "DELETE_PRODUCT":
+            return {
+            products: state.products.filter((element) => {
+              return element.id !== payload.itemId;
+            }),
+            };
+        case "UPDATE_PRODUCTS":
+            const newProducts = state.products.map(oldPro => payload.find(newPro => newPro.id === oldPro.id) || oldPro)
+            return {
+                
+                products: newProducts,
+            };
         // the payload is an array
         case "SEARCH_PRODUCTS":
             return {
