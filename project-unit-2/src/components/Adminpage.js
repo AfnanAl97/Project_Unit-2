@@ -21,7 +21,7 @@ function Adminpage() {
     let newProduct = {};
     let newUpdate = {};
 
-    const addProduct = (e) => {
+    const addProduct = () => {
         
         let inputId = prompt("Product id: ")
         let inputName = prompt("Product name: ")
@@ -37,7 +37,7 @@ function Adminpage() {
             category: inputCategory,
             image: inputImage
         }
-        const action = setProducts() 
+        const action = setProducts(newProduct) 
         dispatch(action)
     }
 
