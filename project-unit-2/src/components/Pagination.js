@@ -1,10 +1,10 @@
 import React from 'react';
 import './Footer.css'
 
-const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
+const Pagination = ({ productsPerPage, totalproducts, paginate }) => {
   const pageNumbers = [];
 
-  for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
+  for (let i = 1; i <= Math.ceil(totalproducts / productsPerPage); i++) {
     pageNumbers.push(i);
   }
 

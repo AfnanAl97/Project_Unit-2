@@ -14,10 +14,9 @@ import Login from './components/Login';
 import Signup from './components/Signup';
 function App() {
 
-  const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [products, setproducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(4);
+  const [productsPerPage] = useState(4);
 
 
   const state = useSelector((state) => {
@@ -29,22 +28,22 @@ function App() {
 
 
   useEffect(()=>{
-    setPosts(state.products)
+    setproducts(state.products)
   },[])
-  // Get current posts
-  const indexOfLastPost = currentPage * postsPerPage;
-  const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
+  // Get current products
+  const indexOfLastProduct = currentPage * productsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+  const currentproducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
 
   // Change page
   const paginate = pageNumber => setCurrentPage(pageNumber);
-console.log(currentPosts)
+console.log(currentproducts)
   return (
     <>
      <BrowserRouter>
     <Header/>
         <Routes>
-          <Route path="/" element={<Productpage posts={currentPosts} loading={loading}/>} />
+          <Route path="/" element={<Productpage products={currentproducts} />} />
           <Route path="/product/:id" element={<ProductDetails/>} />
           <Route path="/cart" element={<Cart/>} />
           <Route path="/Wishlist" element={<Wishlistpage/>}/>
@@ -55,8 +54,8 @@ console.log(currentPosts)
         </Routes>
 
       <Pagination
-        postsPerPage={postsPerPage}
-        totalPosts={posts.length}
+        productsPerPage={productsPerPage}
+        totalproducts={products.length}
         paginate={paginate}
       />
        
