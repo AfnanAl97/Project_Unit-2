@@ -464,7 +464,7 @@ button:active {
   height: 20px;
   justify-self: center;
   border-radius: 10px;
-  border: 0px
+  border: 0px;
 }
 #update{
   background-color: #4761A3;
@@ -478,6 +478,79 @@ button:active {
 }
 
 /* wish list end */
+
+/* cart list start */
+
+.cartpage{
+  justify-content: center;
+  display: grid;
+  row-gap: 10px;
+  margin: 10%;
+}
+.carts{
+  /* display: grid; */
+  grid-template-columns: auto;
+  column-gap: 10px;
+  row-gap: 20px;
+}
+.cartcard{
+  width: 780px;
+  /* height: 350px; */
+  background: #ffffff;
+  border: rgba(123, 120, 161, 0.13) solid 1px;
+  border-radius: 30px;
+  /* display: grid; */
+  /* grid-template-rows: 230px 70px 70px; */
+  padding: 20px;
+  justify-content: center;
+}
+.price-left{
+  margin-left: 40%;
+  /* margin-bottom: 60%; */
+}
+#deleteCart{
+  background-color: #4761A3;
+  color: #ffffff;
+  width: 95px;
+  height: 20px;
+  justify-self: center;
+  border-radius: 10px;
+  border: 0px;
+  margin-left: 55%;
+  /* margin-bottom: 35%; */
+}
+#increment{
+  margin-left: 80%;
+  background-color: #4761A3;
+  color: #ffffff;
+  width: 45px;
+  height: 20px;
+  justify-self: center;
+  border-radius: 10px;
+  border: 0px;
+}
+#decrement{
+  /* margin-left: 90%; */
+  background-color: #4761A3;
+  color: #ffffff;
+  width: 45px;
+  height: 20px;
+  justify-self: center;
+  border-radius: 10px;
+  border: 0px;
+}
+#coupon{
+  margin-left: 90%;
+  background-color: #4761A3;
+  color: #ffffff;
+  width: 45px;
+  height: 20px;
+  justify-self: center;
+  border-radius: 10px;
+  border: 0px;
+}
+
+/* cart list end */
 
 /*Admin page start*/
 

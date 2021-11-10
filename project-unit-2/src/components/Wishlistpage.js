@@ -5,7 +5,7 @@ import { deletewish } from "../reducers/wishlist/action";
 function Wishlistpage() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
+  
   const state = useSelector((state) => {
     return {
       wishlist: state.wishlistReducer.wishlist,
