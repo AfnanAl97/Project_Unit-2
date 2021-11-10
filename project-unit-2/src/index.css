@@ -464,7 +464,7 @@ button:active {
   height: 20px;
   justify-self: center;
   border-radius: 10px;
-  border: 0px
+  border: 0px;
 }
 #update{
   background-color: #4761A3;
@@ -478,6 +478,113 @@ button:active {
 }
 
 /* wish list end */
+
+/* cart list start */
+
+.cartpage{
+  display: grid;
+  grid-template-columns: auto;
+  row-gap: 5px;
+  margin: 10%;
+  justify-content: center;
+}
+
+.cartcard{
+  width: 600px;
+  background: #ffffff;
+  border: rgba(123, 120, 161, 0.13) solid 1px;
+  border-radius: 30px;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  padding: 20px;
+}
+
+.cartcard-2{
+  width: 600px;
+  background: #ffffff;
+  border: rgba(123, 120, 161, 0.13) solid 1px;
+  border-radius: 30px;
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-items: center;
+  padding: 20px;
+}
+
+.cartcard-3{
+  width: 600px;
+  background: #ffffff;
+  border: rgba(123, 120, 161, 0.13) solid 1px;
+  border-radius: 30px;
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-items: center;
+  padding: 20px;
+}
+
+.radios{
+  width: 120px;
+}
+
+.price-left{
+  margin-left: 40%;
+  /* margin-bottom: 60%; */
+}
+#deleteCart{
+  background-color: #4761A3;
+  color: #ffffff;
+  width: 95px;
+  height: 20px;
+  justify-self: center;
+  border-radius: 10px;
+  border: 0px;
+  margin-left: 55%;
+  align-self: center;
+}
+
+#cartbtn{
+  background-color: #4761A3;
+  color: #ffffff;
+  width: 220px;
+  height: 30px;
+  justify-self: center;
+  border-radius: 10px;
+  border: 0px;
+  margin-left: 55%;
+  align-self: center;
+}
+
+#increment{
+  margin-left: 80%;
+  background-color: #4761A3;
+  color: #ffffff;
+  width: 45px;
+  height: 20px;
+  justify-self: center;
+  border-radius: 10px;
+  border: 0px;
+}
+#decrement{
+  /* margin-left: 90%; */
+  background-color: #4761A3;
+  color: #ffffff;
+  width: 45px;
+  height: 20px;
+  justify-self: center;
+  border-radius: 10px;
+  border: 0px;
+}
+#coupon{
+  margin-left: 90%;
+  background-color: #4761A3;
+  color: #ffffff;
+  width: 45px;
+  height: 20px;
+  justify-self: center;
+  border-radius: 10px;
+  border: 0px;
+}
+
+/* cart list end */
 
 /*Admin page start*/
 

@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { FaHeart } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { setWish } from "../reducers/wishlist/action";
+import { setCart } from "../reducers/cart/action";
 import Rating from './Rating'
 
 function ProductDetails() {
@@ -34,6 +35,18 @@ function ProductDetails() {
     dispatch(action);
     navigate(`/Wishlist`);
   };
+
+  const addCart = (e) => {
+    let newCart = [
+      {
+        id: userstate.currentUser.id,
+        item: e,
+      },
+    ];
+    const action = setCart(newCart[0]);
+    dispatch(action);
+    navigate(`/cart`);
+  };
   return (
     <>
       {state.products !== undefined
@@ -58,7 +71,7 @@ function ProductDetails() {
                       {userstate.isLoggedIn && (<button
                         id="cart"
                         onClick={() => {
-                          navigate(`/cart`);
+                          addCart(e);
                         }}
                       >
                         Add to cart

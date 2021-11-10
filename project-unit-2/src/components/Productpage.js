@@ -5,6 +5,7 @@ import Search from "./Search";
 import Filter from "./Filter";
 import { FaHeart } from "react-icons/fa";
 import { setWish } from "../reducers/wishlist/action";
+import { setCart } from "../reducers/cart/action";
 import { getProducts } from "../reducers/product/action"
 import { useEffect, useState } from "react";
 
@@ -34,6 +35,12 @@ function Productpage() {
     };
   });
 
+  const cartstate = useSelector((state) => {
+    return {
+      cartList: state.cartListReducer.cartList,
+    };
+  });
+
   const addwish = (e) => {
     let newWish = [
       {
@@ -44,6 +51,20 @@ function Productpage() {
     const action = setWish(newWish[0]);
     dispatch(action);
     navigate(`/Wishlist`);
+  };
+  const addCart = (e) => {
+    let newCart = [
+      {
+        id: userstate.currentUser.id,
+        item: e,
+        count: 0,
+      },
+    ];
+    const action = setCart(newCart[0]);
+    dispatch(action);
+    console.log(newCart);
+    console.log(cartstate.cartList);
+    navigate(`/cart`);
   };
   
   return (
@@ -84,7 +105,7 @@ function Productpage() {
                 {userstate.isLoggedIn && (<button
                   id="cart"
                   onClick={() => {
-                    navigate(`/cart`);
+                    addCart(e)
                   }}
                 >
                   Add to cart
@@ -123,7 +144,7 @@ function Productpage() {
                 {userstate.isLoggedIn && (<button
                   id="cart"
                   onClick={() => {
-                    navigate(`/cart`);
+                    addCart(e)
                   }}
                 >
                   Add to cart
@@ -162,7 +183,7 @@ function Productpage() {
                 {userstate.isLoggedIn && (<button
                   id="cart"
                   onClick={() => {
-                    navigate(`/cart`);
+                    addCart(e)
                   }}
                 >
                   Add to cart
