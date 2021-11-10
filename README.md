@@ -24,7 +24,7 @@ npm start
 
 ## Project Team
 
-Leader : Manal Alzeer 
-member: Afnan Alharbi - Aljohara Ali
+- Leader : Manal Alzeer 
+- member: Afnan Alharbi - Aljohara Ali
 
 
