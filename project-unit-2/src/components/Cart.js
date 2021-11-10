@@ -8,6 +8,7 @@ function Cart() {
     const dispatch = useDispatch();
 
     const [total, setTotal] = useState();
+    const [secretWord, setSecretWord] = useState();
 
     const state = useSelector((state) => {
         console.log(state)
@@ -35,14 +36,22 @@ function Cart() {
 
     },[]) 
 
-    const addCoupons = () => {
+    const addCoupons = (e) => {
+
+     
+      if(secretWord === "Hello"){
         let discount=total-(total*0.15)
-        setTotal(discount)
+        setTotal(discount)}
     }
 
     const deliverDiscount = () => {
         let disc=total+30
         setTotal(disc)
+    }
+
+    const confermOrder = () => {
+        alert("Successful")
+        // navigate("/previosOrder");
     }
 
     return (
@@ -53,22 +62,9 @@ function Cart() {
           ? state.cartList[userstate.currentUser.id].map((element) => {
               return (
                 <div  className="cartcard">
-                  <h3
-                    onClick={() => {
-                      navigate(`/product/${element.id}`);
-                    }}
-                  >
-                    {element.name}  <div className="price-left">{element.price}</div>
-                  </h3>
-                  <h3
-                    onClick={() => {
-                      navigate(`/product/${element.id}`);
-                    }}
-                  >
-                  </h3>
-                  <button
-                    id="deleteCart"
-                    onClick={() => {
+                  <h3 onClick={() => { navigate(`/product/${element.id}`);}}>{element.name} </h3>
+                     <h3 className="price-left">{element.price}</h3>                  
+                  <button id="deleteCart" onClick={() => {
                       let deleteitem = [
                         {
                           id: userstate.currentUser.id,
@@ -78,32 +74,37 @@ function Cart() {
                       const action = deleteCart(deleteitem[0]);
                       dispatch(action);
                     }}
-                  >
-                    delete
-                  </button>
-
+                  > delete </button>
                 </div>
               );
             })
           : "Your cart is empty ;)"}
+
         {console.log(state.cartList[userstate.currentUser.id])}
-      </div>
-      <h3>Total: {total}</h3>
-      <form>
-      <label for="coupon">Coupons</label> 
-      <input id="coup" name="coupon" type="text"/>
-      <button type="button" onClick={addCoupons}>Submit</button>
-    </form>
-
-  <input type="radio" id="html" name="options" value="delivery"/>
-  <label for="html"><h3>Delivery</h3></label><br/>
-  <h6>Increase 30 SAR</h6>
-  
-  <input type="radio" id="css" name="options" value="collection"/>
-  <label for="css"><h3>Collection</h3></label><br/>
+        <div className="cartcard-2">
+            <input id="cou" name="coupon" type="text" placeholder="Your Coupons" onChange={(e)=>{setSecretWord(e.target.value)}}/>
+            <button type="button" onClick={addCoupons}>Submit</button>
+            <div className="radios">
+            <label for="delivery">Delivery</label>
+            <input type="radio" id="delivery" name="options" value="delivery"/>
+            <h6>Increase 30 SAR</h6>
+            </div>
+            <div className="radios">
+            <label for="collection">Collection</label>
+            <input type="radio" id="collection" name="options" value="collection"/>
+            </div>
+        </div>
+        
+        <div className="cartcard">
+            <h3>Total:</h3>
+            <h3>{total}</h3>
+        </div>
+        <div className="cartcard">
+        <button type="button" id="cartbtn" onClick={deliverDiscount}>Check the total before confirm</button>
+        <button type="button" id="cartbtn" onClick={confermOrder}>Confirm order</button>
+        </div>
+  </div>
     </div>
-
-  <button type="button" onClick={deliverDiscount}>Confirm order</button>
         </>
     );
   }
