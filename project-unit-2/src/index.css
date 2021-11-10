@@ -91,7 +91,7 @@ body {
   border-top: 0px;
   overflow-x: hidden;
   display: grid;
-  grid-template-rows: 50px 250px 70px;
+  grid-template-rows: 50px 230px 210px auto auto;
 }
 
 .form-1 , .form-2 {
