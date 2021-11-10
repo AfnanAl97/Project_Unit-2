@@ -3,7 +3,7 @@ import { FaShoppingBasket } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { FaSignOutAlt } from "react-icons/fa";
+import { FaSignOutAlt , FaEdit} from "react-icons/fa";
 import { logout } from "../reducers/SignupLogin/action";
 import { useDispatch } from "react-redux";
 
@@ -58,11 +58,17 @@ function Header() {
                 <Link id="heart" to="/Wishlist">
                   <FaHeart />
                 </Link>
-              </li><li>
+              </li>
+              <li>
                 <Link id="shop" to="/cart">
                   <FaShoppingBasket />
                 </Link>
-              </li></>          )}
+              </li></>)}
+              {userstate.currentUser.id === 1 && (<li>
+                <Link id="edit" to="/Admin">
+                  <FaEdit />
+                </Link>
+              </li>)}
         </ul>
       </div>
     </>
