@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { deleteCart, increment, decrement } from "../reducers/cart/action";
 import { useEffect, useState } from "react";
-
+import {  addToPrev } from '../reducers/PreviousOders/action'
 function Cart() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -49,10 +49,21 @@ function Cart() {
     }
   };
 
-  const confermOrder = () => {
+  const confermOrder = (e) => {
+    let newArr = [
+      {
+        id: userstate.currentUser.id,
+        item: state.cartList[userstate.currentUser.id] ,
+      },
+    ];
+    const action = addToPrev(newArr[0]);
+    dispatch(action);
+    console.log(newArr);
     alert("Successful");
-    // navigate("/previosOrder");
+    navigate("/prev");
   };
+
+ 
 
   return (
     <>
@@ -136,7 +147,7 @@ function Cart() {
             <h3>{total} SAR</h3>
           </div>
           <div className="buttons-cart">
-            <button type="button" id="cartbtn" onClick={confermOrder}>
+            <button type="button" id="cartbtn" onClick={()=>confermOrder()}>
               Confirm order
             </button>
           </div>
