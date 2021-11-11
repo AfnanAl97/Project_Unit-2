@@ -8,7 +8,8 @@ import { setWish } from "../reducers/wishlist/action";
 import { setCart } from "../reducers/cart/action";
 import { getProducts } from "../reducers/product/action"
 import { useEffect, useState } from "react";
-
+import ReactPaginate from "react-paginate";
+import "./Footer.css"
 
 function Productpage() {
   const navigate = useNavigate();
@@ -22,6 +23,27 @@ function Productpage() {
     };
   });
 
+    // paginate 
+    const [products, setproducts] = useState(state.products);
+    const [pageNumber, setPageNumber] = useState(0);
+  
+    const productsPerPage = 9;
+    const pagesVisited = pageNumber * productsPerPage;
+  
+    const displayproducts = state.products
+      .slice(pagesVisited, pagesVisited + productsPerPage)
+      .map((product) => {
+        return product
+      });
+  
+      const pageCount = Math.ceil(products.length / productsPerPage);
+  
+      const changePage = ( {selected} ) => {
+        setPageNumber(selected);
+      };
+  
+      // end of paginate
+  
   useEffect(() => {
     const action = getProducts(state.products);
     dispatch(action);
@@ -151,7 +173,7 @@ function Productpage() {
                 </button>)}
               </div>
             </div>);
-        })) : (state.products.map((e) => {
+        })) : (displayproducts.map((e) => {
           return (
             <div className="card">
               {userstate.isLoggedIn && (<div>
@@ -193,7 +215,19 @@ function Productpage() {
         }))}
       </div>
 
-    </div></>
+    </div>
+    <ReactPaginate
+        previousLabel={"Previous"}
+        nextLabel={"Next"}
+        pageCount={pageCount}
+        onPageChange={changePage}
+        containerClassName={"paginationBttns"}
+        previousLinkClassName={"previousBttn"}
+        nextLinkClassName={"nextBttn"}
+        disabledClassName={"paginationDisabled"}
+        activeClassName={"paginationActive"}
+      />
+    </>
   )
 }
 export default Productpage;
