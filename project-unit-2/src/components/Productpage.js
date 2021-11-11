@@ -77,8 +77,7 @@ function Productpage() {
     let newCart = [
       {
         id: userstate.currentUser.id,
-        item: e,
-        count: 0,
+        item: {...e,count: 1}
       },
     ];
     const action = setCart(newCart[0]);

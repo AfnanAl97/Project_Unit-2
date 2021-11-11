@@ -9,6 +9,7 @@ function Cart() {
 
   const [total, setTotal] = useState();
   const [secretWord, setSecretWord] = useState();
+  const [countVal, setCountVal] = useState()
 
     const state = useSelector((state) => {
         console.log(state)
@@ -29,11 +30,11 @@ function Cart() {
   useEffect(() => {
     let sub = 0;
     state.cartList[userstate.currentUser.id].map((element) => {
-      sub = sub + element.price;
+      sub = sub + element.price*element.count;
     });
     setTotal(sub);
 
-  }, []);
+  }, [countVal]);
 
   const addCoupons = () => {
     if (secretWord === "Hello") {
@@ -66,8 +67,6 @@ function Cart() {
     alert("Successful");
     navigate("/prev");
   };
-
- 
 
   return (
     <>
@@ -103,17 +102,18 @@ function Cart() {
                       {" "}
                       delete{" "}
                     </button>
-{/* 
+
                     <button
                       id="increment"
                       onClick={() => {
-                          let incItem = [
-                              {
-                                  id: userstate.currentUser.id,
-                                  itemId: element.id,
-                              },
-                          ];
-                        const action = incItem(incItem[0]);
+                        //   let incItem = [
+                        //       {
+                        //           id: userstate.currentUser.id,
+                        //           itemId: element.id,
+                        //       },
+                        //   ];
+                        setCountVal(element.count)
+                        const action = increment(element);
                         dispatch(action)
                       }}
                       >
@@ -124,19 +124,20 @@ function Cart() {
                       <button
                       id="decrement"
                       onClick={() => {
-                          let decItem = [
-                              {
-                                  id: userstate.currentUser.id,
-                                  itemId: element.id,
-                              },
-                          ];
-                        const action = decItem(decItem[0]);
+                        //   let decItem = [
+                        //       {
+                        //           id: userstate.currentUser.id,
+                        //           itemId: element.id,
+                        //       },
+                        //   ];
+                        setCountVal(element.count)
+                        const action = decrement(element);
                         dispatch(action)
                       }}
                       >
                           {" "}
                           -1{" "}
-                      </button> */}
+                      </button>
                   </div>
                 );
               })
