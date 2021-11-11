@@ -27,7 +27,6 @@ function Cart() {
 
     useEffect(() => {
       let sub=0
-
         state.cartList[userstate.currentUser.id].map((element)=>{
             sub =sub+element.price
         })
