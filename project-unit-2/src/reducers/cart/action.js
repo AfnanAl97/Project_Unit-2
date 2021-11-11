@@ -13,14 +13,16 @@ export const setCart = (cart) => {
     };
   };
 
-  export const increment = () => {
+  export const increment = (payload) => {
     return {
       type: "INCREMENT",
+      payload:payload
     };
   };
   
-  export const decrement = () => {
+  export const decrement = (payload) => {
     return {
       type: "DECREMENT",
+      payload:payload
     };
   };

@@ -520,7 +520,7 @@ button:active {
 .item-cart {
   display: grid;
   padding: 10px;
-  grid-template-columns: 240px auto auto;
+  grid-template-columns: 240px auto auto auto auto;
 }
 
 #input-coupon {
