@@ -16,11 +16,14 @@ to install and run the project use :
 
 ```
 npm install
+npm install react-paginate --save
+npm install react-icons --save
 ```
 
 ```
 npm start
 ```
+
 
 ## Project Team
 
