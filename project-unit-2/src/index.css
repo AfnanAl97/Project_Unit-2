@@ -660,6 +660,45 @@ button:active {
 
 /*Admin page end*/
 
+/* pagination start */
+
+.paginationBttns {
+  width:90%;
+  height: 20px;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding-top: 89px;
+  margin-left: 90px;
+  padding-bottom: 80px;
+}
+
+.paginationBttns a {
+  padding: 10px;
+  margin: 9px;
+  border-radius: 5px;
+  border: 1px solid #4761A3;
+  color: #4761A3;
+  cursor: pointer;
+}
+
+.paginationBttns a:hover {
+  color: white;
+  background-color: #4761A3;
+}
+
+.paginationActive a {
+  color: white;
+  background-color: #4761A3;
+}
+
+/* .paginationDisabled a {
+  color: grey;
+  background-color: grey;
+} */
+
+/* pagination end */
+
 @media (max-width: 810px), (max-width: 1368px) {
   .card {
     width: 250px;

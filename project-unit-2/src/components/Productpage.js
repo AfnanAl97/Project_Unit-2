@@ -9,7 +9,6 @@ import { setCart } from "../reducers/cart/action";
 import { getProducts } from "../reducers/product/action"
 import { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
-import "./Footer.css"
 
 function Productpage() {
   const navigate = useNavigate();
