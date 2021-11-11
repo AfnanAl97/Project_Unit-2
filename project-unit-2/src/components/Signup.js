@@ -33,6 +33,7 @@ function Signup() {
     const handleFormSubmit = (event) => {
         event.preventDefault();
         validation();
+        if(tempPass !== "" && tempUser !== ""){
         if(errors.password === "" && errors.username === ""){
             let id = state.users.length +1;
             const newUser = {
@@ -45,7 +46,7 @@ function Signup() {
             const action = signup(newUser);
             dispatch(action);
             navigate(`/`);
-        }
+        }}
     }
 
     const handleLogin = () => {

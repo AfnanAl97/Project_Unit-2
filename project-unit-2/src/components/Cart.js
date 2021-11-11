@@ -35,7 +35,7 @@ function Cart() {
 
   }, []);
 
-  const addCoupons = (e) => {
+  const addCoupons = () => {
     if (secretWord === "Hello") {
       let discount = total - total * 0.15;
       setTotal(discount);
@@ -86,12 +86,13 @@ function Cart() {
                         ];
                         const action = deleteCart(deleteitem[0]);
                         dispatch(action);
+                        setTotal(total-element.price)
                       }}
                     >
                       {" "}
                       delete{" "}
                     </button>
-
+{/* 
                     <button
                       id="increment"
                       onClick={() => {
@@ -124,7 +125,7 @@ function Cart() {
                       >
                           {" "}
                           -1{" "}
-                      </button>
+                      </button> */}
                   </div>
                 );
               })
