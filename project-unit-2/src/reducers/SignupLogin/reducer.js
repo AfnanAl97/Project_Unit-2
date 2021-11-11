@@ -8,6 +8,11 @@ const initialState = {
     id: 2,
     username: "Afnan",
     password:"1234",
+  },
+  {
+    id: 3,
+    username: "Manal",
+    password:"1111",
   }],
   currentUser:{},
   isLoggedIn: false,

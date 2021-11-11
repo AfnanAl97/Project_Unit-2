@@ -10,18 +10,21 @@ function Cart() {
   const [total, setTotal] = useState();
   const [secretWord, setSecretWord] = useState();
 
-  const state = useSelector((state) => {
-    console.log(state);
-    return {
-      cartList: state.cartListReducer.cartList,
-    };
-  });
+    const state = useSelector((state) => {
+        console.log(state)
+        return {
+          cartList: state.cartListReducer.cartList,
+        };
+    });
 
-  const userstate = useSelector((state) => {
-    return {
-      currentUser: state.usersReducer.currentUser,
-    };
-  });
+    const userstate = useSelector((state) => {
+        return {
+          currentUser: state.usersReducer.currentUser,
+        };
+    });
+
+      //   let id = userstate.currentUser;
+      //   state.cartList[id].countl;
 
   useEffect(() => {
     let sub = 0;
@@ -29,9 +32,10 @@ function Cart() {
       sub = sub + element.price;
     });
     setTotal(sub);
+
   }, []);
 
-  const addCoupons = (e) => {
+  const addCoupons = () => {
     if (secretWord === "Hello") {
       let discount = total - total * 0.15;
       setTotal(discount);
@@ -82,11 +86,46 @@ function Cart() {
                         ];
                         const action = deleteCart(deleteitem[0]);
                         dispatch(action);
+                        setTotal(total-element.price)
                       }}
                     >
                       {" "}
                       delete{" "}
                     </button>
+{/* 
+                    <button
+                      id="increment"
+                      onClick={() => {
+                          let incItem = [
+                              {
+                                  id: userstate.currentUser.id,
+                                  itemId: element.id,
+                              },
+                          ];
+                        const action = incItem(incItem[0]);
+                        dispatch(action)
+                      }}
+                      >
+                          {" "}
+                          1{" "}
+                      </button>
+
+                      <button
+                      id="decrement"
+                      onClick={() => {
+                          let decItem = [
+                              {
+                                  id: userstate.currentUser.id,
+                                  itemId: element.id,
+                              },
+                          ];
+                        const action = decItem(decItem[0]);
+                        dispatch(action)
+                      }}
+                      >
+                          {" "}
+                          -1{" "}
+                      </button> */}
                   </div>
                 );
               })
@@ -144,6 +183,7 @@ function Cart() {
       </div>
     </>
   );
-}
+ }
+
 
 export default Cart;

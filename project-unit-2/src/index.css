@@ -577,6 +577,30 @@ button:active {
   border: 0px;
   align-self: center;
 }
+#increment {
+  background-color: #4761a3;
+  color: #ffffff;
+  width: 30px;
+  padding: 5px;
+  justify-self: end;
+  border-radius: 10px;
+  border: 0px;
+  align-self: center;
+  margin-left: 80%;
+
+}
+
+#decrement {
+  background-color: #4761a3;
+  color: #ffffff;
+  width: 30px;
+  padding: 5px;
+  justify-self: end;
+  border-radius: 10px;
+  border: 0px;
+  align-self: center;
+  margin-left: 30%;
+}
 
 #cartbtn {
   background-color: #4761a3;
@@ -587,27 +611,6 @@ button:active {
   border-radius: 6px;
   border: 0px;
   align-self: center;
-}
-
-#increment {
-  margin-left: 80%;
-  background-color: #4761a3;
-  color: #ffffff;
-  width: 45px;
-  height: 20px;
-  justify-self: center;
-  border-radius: 10px;
-  border: 0px;
-}
-#decrement {
-  /* margin-left: 90%; */
-  background-color: #4761a3;
-  color: #ffffff;
-  width: 45px;
-  height: 20px;
-  justify-self: center;
-  border-radius: 10px;
-  border: 0px;
 }
 #coupon {
   margin-left: 90%;

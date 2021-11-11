@@ -25,7 +25,13 @@ const cartListReducer = (state = initialState, { type, payload }) => {
             return {
                 cartList: deletestate,
             };
-            
+        case "INCREMENT":
+          return {
+             count: state.count+1
+          };
+        case "DECREMENT":
+          return {count: state.count-1};
+
         default:
             return state;
     }
