@@ -6,7 +6,7 @@ import Filter from "./Filter";
 import { FaHeart } from "react-icons/fa";
 import { setWish } from "../reducers/wishlist/action";
 import { setCart } from "../reducers/cart/action";
-import { getProducts } from "../reducers/product/action"
+import { getProducts } from "../reducers/product/action";
 import { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
 
@@ -22,27 +22,27 @@ function Productpage() {
     };
   });
 
-    // paginate 
-    const [products, setproducts] = useState(state.products);
-    const [pageNumber, setPageNumber] = useState(0);
-  
-    const productsPerPage = 9;
-    const pagesVisited = pageNumber * productsPerPage;
-  
-    const displayproducts = state.products
-      .slice(pagesVisited, pagesVisited + productsPerPage)
-      .map((product) => {
-        return product
-      });
-  
-      const pageCount = Math.ceil(products.length / productsPerPage);
-  
-      const changePage = ( {selected} ) => {
-        setPageNumber(selected);
-      };
-  
-      // end of paginate
-  
+  // paginate
+  const [products, setproducts] = useState(state.products);
+  const [pageNumber, setPageNumber] = useState(0);
+
+  const productsPerPage = 9;
+  const pagesVisited = pageNumber * productsPerPage;
+
+  const displayproducts = state.products
+    .slice(pagesVisited, pagesVisited + productsPerPage)
+    .map((product) => {
+      return product;
+    });
+
+  const pageCount = Math.ceil(products.length / productsPerPage);
+
+  const changePage = ({ selected }) => {
+    setPageNumber(selected);
+  };
+
+  // end of paginate
+
   useEffect(() => {
     const action = getProducts(state.products);
     dispatch(action);
@@ -77,7 +77,7 @@ function Productpage() {
     let newCart = [
       {
         id: userstate.currentUser.id,
-        item: {...e,count: 1}
+        item: { ...e, count: 1 },
       },
     ];
     const action = setCart(newCart[0]);
@@ -86,135 +86,153 @@ function Productpage() {
     console.log(cartstate.cartList);
     navigate(`/cart`);
   };
-  
+
   return (
-    <><Filter />
-    <div className="container">
-      <Search />
-      <div className="cards">
-
-        {state.searchresult !== undefined ? (state.searchresult.map((e) => {
-          return (
-            <div className="card">
-              {userstate.isLoggedIn && (<div>
-                <FaHeart
-                  className="wish"
-                  onClick={() => {
-                    addwish(e);
-                  }}
-                />
-              </div>)}
-              <img
-                className="img"
-                src={e.image}
-                alt=""
-                onClick={() => {
-                  navigate(`/product/${e.id}`);
-                }}
-              />
-              <h3
-                onClick={() => {
-                  navigate(`/product/${e.id}`);
-                }}
-              >
-                {e.name}
-              </h3>
-              <p>{e.description}</p>
-              <div className="PriceAndBtn">
-                <p id="price">{e.price} SAR</p>
-                {userstate.isLoggedIn && (<button
-                  id="cart"
-                  onClick={() => {
-                    addCart(e)
-                  }}
-                >
-                  Add to cart
-                </button>)}
-              </div>
-            </div>);
-        })) : (state.filteredProducts !== undefined) ? (state.filteredProducts.map((e) => {
-          return (
-            <div className="card">
-              {userstate.isLoggedIn && (<div>
-                <FaHeart
-                  className="wish"
-                  onClick={() => {
-                    addwish(e);
-                  }}
-                />
-              </div>)}
-              <img
-                className="img"
-                src={e.image}
-                alt=""
-                onClick={() => {
-                  navigate(`/product/${e.id}`);
-                }}
-              />
-              <h3
-                onClick={() => {
-                  navigate(`/product/${e.id}`);
-                }}
-              >
-                {e.name}
-              </h3>
-              <p>{e.description}</p>
-              <div className="PriceAndBtn">
-                <p id="price">{e.price} SAR</p>
-                {userstate.isLoggedIn && (<button
-                  id="cart"
-                  onClick={() => {
-                    addCart(e)
-                  }}
-                >
-                  Add to cart
-                </button>)}
-              </div>
-            </div>);
-        })) : (displayproducts.map((e) => {
-          return (
-            <div className="card">
-              {userstate.isLoggedIn && (<div>
-                <FaHeart
-                  className="wish"
-                  onClick={() => {
-                    addwish(e);
-                  }}
-                />
-              </div>)}
-              <img
-                className="img"
-                src={e.image}
-                alt=""
-                onClick={() => {
-                  navigate(`/product/${e.id}`);
-                }}
-              />
-              <h3
-                onClick={() => {
-                  navigate(`/product/${e.id}`);
-                }}
-              >
-                {e.name}
-              </h3>
-              <p>{e.description}</p>
-              <div className="PriceAndBtn">
-                <p id="price">{e.price} SAR</p>
-                {userstate.isLoggedIn && (<button
-                  id="cart"
-                  onClick={() => {
-                    addCart(e)
-                  }}
-                >
-                  Add to cart
-                </button>)}
-              </div>
-            </div>);
-        }))}
+    <>
+      <Filter />
+      <div className="container">
+        <Search />
+        <div className="cards">
+          {state.searchresult !== undefined
+            ? state.searchresult.map((e) => {
+                return (
+                  <div className="card">
+                    {userstate.isLoggedIn && (
+                      <div>
+                        <FaHeart
+                          className="wish"
+                          onClick={() => {
+                            addwish(e);
+                          }}
+                        />
+                      </div>
+                    )}
+                    <img
+                      className="img"
+                      src={e.image}
+                      alt=""
+                      onClick={() => {
+                        navigate(`/product/${e.id}`);
+                      }}
+                    />
+                    <h3
+                      onClick={() => {
+                        navigate(`/product/${e.id}`);
+                      }}
+                    >
+                      {e.name}
+                    </h3>
+                    <p>{e.description}</p>
+                    <div className="PriceAndBtn">
+                      <p id="price">{e.price} SAR</p>
+                      {userstate.isLoggedIn && (
+                        <button
+                          id="cart"
+                          onClick={() => {
+                            addCart(e);
+                          }}
+                        >
+                          Add to cart
+                        </button>
+                      )}
+                    </div>
+                  </div>
+                );
+              })
+            : state.filteredProducts !== undefined
+            ? state.filteredProducts.map((e) => {
+                return (
+                  <div className="card">
+                    {userstate.isLoggedIn && (
+                      <div>
+                        <FaHeart
+                          className="wish"
+                          onClick={() => {
+                            addwish(e);
+                          }}
+                        />
+                      </div>
+                    )}
+                    <img
+                      className="img"
+                      src={e.image}
+                      alt=""
+                      onClick={() => {
+                        navigate(`/product/${e.id}`);
+                      }}
+                    />
+                    <h3
+                      onClick={() => {
+                        navigate(`/product/${e.id}`);
+                      }}
+                    >
+                      {e.name}
+                    </h3>
+                    <p>{e.description}</p>
+                    <div className="PriceAndBtn">
+                      <p id="price">{e.price} SAR</p>
+                      {userstate.isLoggedIn && (
+                        <button
+                          id="cart"
+                          onClick={() => {
+                            addCart(e);
+                          }}
+                        >
+                          Add to cart
+                        </button>
+                      )}
+                    </div>
+                  </div>
+                );
+              })
+            : displayproducts.map((e) => {
+                return (
+                  <div className="card">
+                    {userstate.isLoggedIn && (
+                      <div>
+                        <FaHeart
+                          className="wish"
+                          onClick={() => {
+                            addwish(e);
+                          }}
+                        />
+                      </div>
+                    )}
+                    <img
+                      className="img"
+                      src={e.image}
+                      alt=""
+                      onClick={() => {
+                        navigate(`/product/${e.id}`);
+                      }}
+                    />
+                    <h3
+                      onClick={() => {
+                        navigate(`/product/${e.id}`);
+                      }}
+                    >
+                      {e.name}
+                    </h3>
+                    <p>{e.description}</p>
+                    <div className="PriceAndBtn">
+                      <p id="price">{e.price} SAR</p>
+                      {userstate.isLoggedIn && (
+                        <button
+                          id="cart"
+                          onClick={() => {
+                            addCart(e);
+                          }}
+                        >
+                          Add to cart
+                        </button>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
+        </div>
       </div>
-
-    </div>
-    <ReactPaginate
+      <ReactPaginate
         previousLabel={"Previous"}
         nextLabel={"Next"}
         pageCount={pageCount}
@@ -226,6 +244,6 @@ function Productpage() {
         activeClassName={"paginationActive"}
       />
     </>
-  )
+  );
 }
 export default Productpage;
