@@ -2,38 +2,38 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { deleteCart, increment, decrement } from "../reducers/cart/action";
 import { useEffect, useState } from "react";
-import {  addToPrev } from '../reducers/PreviousOders/action'
+import { addToPrev } from "../reducers/PreviousOders/action";
 function Cart() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const [total, setTotal] = useState();
   const [secretWord, setSecretWord] = useState();
-  const [countVal, setCountVal] = useState()
+  const [countVal, setCountVal] = useState();
 
-    const state = useSelector((state) => {
-        console.log(state)
-        return {
-          cartList: state.cartListReducer.cartList,
-        };
-    });
+  const state = useSelector((state) => {
+    console.log(state);
+    return {
+      cartList: state.cartListReducer.cartList,
+    };
+  });
 
-    const userstate = useSelector((state) => {
-        return {
-          currentUser: state.usersReducer.currentUser,
-        };
-    });
-
-      //   let id = userstate.currentUser;
-      //   state.cartList[id].countl;
+  const userstate = useSelector((state) => {
+    return {
+      currentUser: state.usersReducer.currentUser,
+    };
+  });
 
   useEffect(() => {
     let sub = 0;
-    state.cartList[userstate.currentUser.id].map((element) => {
-      sub = sub + element.price*element.count;
-    });
-    setTotal(sub);
-
+    {
+      state.cartList[userstate.currentUser.id] !== undefined
+        ? state.cartList[userstate.currentUser.id].map((element) => {
+            sub = sub + element.price * element.count;
+            setTotal(sub);
+          })
+        : setTotal(sub);
+    }
   }, [countVal]);
 
   const addCoupons = () => {
@@ -58,7 +58,7 @@ function Cart() {
     let newArr = [
       {
         id: userstate.currentUser.id,
-        item: state.cartList[userstate.currentUser.id] ,
+        item: state.cartList[userstate.currentUser.id],
       },
     ];
     const action = addToPrev(newArr[0]);
@@ -73,7 +73,7 @@ function Cart() {
       <div class="parent">
         <h1 id="heading">Order Summary</h1>
         <div class="summary_card">
-          {state.cartList[userstate.currentUser.id].length !== 0
+          {state.cartList[userstate.currentUser.id] !== undefined
             ? state.cartList[userstate.currentUser.id].map((element) => {
                 return (
                   <div className="item-cart">
@@ -96,48 +96,44 @@ function Cart() {
                         ];
                         const action = deleteCart(deleteitem[0]);
                         dispatch(action);
-                        setTotal(total-element.price)
+                        setTotal(total - element.price);
                       }}
                     >
                       {" "}
-                      delete{" "}
+                      Delete{" "}
                     </button>
 
-                    <button
-                      id="increment"
-                      onClick={() => {
-                        //   let incItem = [
-                        //       {
-                        //           id: userstate.currentUser.id,
-                        //           itemId: element.id,
-                        //       },
-                        //   ];
-                        setCountVal(element.count)
-                        const action = increment(element);
-                        dispatch(action)
-                      }}
-                      >
-                          {" "}
-                          1{" "}
-                      </button>
-
+                    <div className="div-count">
                       <button
-                      id="decrement"
-                      onClick={() => {
-                        //   let decItem = [
-                        //       {
-                        //           id: userstate.currentUser.id,
-                        //           itemId: element.id,
-                        //       },
-                        //   ];
-                        setCountVal(element.count)
-                        const action = decrement(element);
-                        dispatch(action)
-                      }}
+                        id="increment"
+                        onClick={() => {
+                          setCountVal(element.count);
+                          const action = increment(element);
+                          dispatch(action);
+                        }}
                       >
-                          {" "}
-                          -1{" "}
+                        {" "}
+                        +{" "}
                       </button>
+                      <p className="numberofproduct">{element.count}</p>
+                      <button
+                        id="decrement"
+                        onClick={() => {
+                          //   let decItem = [
+                          //       {
+                          //           id: userstate.currentUser.id,
+                          //           itemId: element.id,
+                          //       },
+                          //   ];
+                          setCountVal(element.count);
+                          const action = decrement(element);
+                          dispatch(action);
+                        }}
+                      >
+                        {" "}
+                        -{" "}
+                      </button>
+                    </div>
                   </div>
                 );
               })
@@ -156,7 +152,7 @@ function Cart() {
               }}
             />
             <button type="button" id="btn-coupon" onClick={addCoupons}>
-              discount
+              Discount
             </button>
           </div>
           <div className="radios">
@@ -187,7 +183,7 @@ function Cart() {
             <h3>{total} SAR</h3>
           </div>
           <div className="buttons-cart">
-            <button type="button" id="cartbtn" onClick={()=>confermOrder()}>
+            <button type="button" id="cartbtn" onClick={() => confermOrder()}>
               Confirm order
             </button>
           </div>
@@ -195,7 +191,6 @@ function Cart() {
       </div>
     </>
   );
- }
-
+}
 
 export default Cart;

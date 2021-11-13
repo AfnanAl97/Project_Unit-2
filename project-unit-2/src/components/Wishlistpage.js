@@ -5,7 +5,7 @@ import { deletewish } from "../reducers/wishlist/action";
 function Wishlistpage() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  
+
   const state = useSelector((state) => {
     return {
       wishlist: state.wishlistReducer.wishlist,
@@ -22,7 +22,7 @@ function Wishlistpage() {
     <div className="wishpage">
       <div className="wishes">
         {console.log(state.wishlist)}
-        {state.wishlist[userstate.currentUser.id].length !== 0
+        {state.wishlist[userstate.currentUser.id] !== undefined
           ? state.wishlist[userstate.currentUser.id].map((element) => {
               return (
                 <div className="wishcard">

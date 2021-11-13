@@ -1,26 +1,19 @@
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { deleteCart, increment, decrement } from "../reducers/cart/action";
-import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 function PrevOders() {
-  const navigate = useNavigate();
-
   const state = useSelector((state) => {
     console.log(state);
     return {
-        PrevList: state.PrevOrderReducer.PrevList,
+      PrevList: state.PrevOrderReducer.PrevList,
     };
   });
-
 
   const userstate = useSelector((state) => {
     return {
       currentUser: state.usersReducer.currentUser,
     };
   });
-console.log(state.PrevList[2][0])
-
+  console.log(state.PrevList[2][0]);
 
   return (
     <>
@@ -31,20 +24,14 @@ console.log(state.PrevList[2][0])
             ? state.PrevList[userstate.currentUser.id][0].map((element) => {
                 return (
                   <div className="item-cart">
-                    <h4>
-                      {element.name}{" "}
-                    </h4>
+                    <h4>{element.name} </h4>
                     <h4 className="price-left">{element.price} SAR</h4>
-             
                   </div>
                 );
               })
             : "No previous orders ;)"}
 
           <hr />
-
-     
-
         </div>
       </div>
     </>
