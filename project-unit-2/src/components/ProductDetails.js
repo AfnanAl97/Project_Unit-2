@@ -5,7 +5,6 @@ import { FaHeart } from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { setWish } from "../reducers/wishlist/action";
 import { setCart } from "../reducers/cart/action";
-import Rating from './Rating'
 
 function ProductDetails() {
   const navigate = useNavigate();
@@ -55,31 +54,34 @@ function ProductDetails() {
               return (
                 <div className="parent">
                   <div className="details">
-                  {userstate.isLoggedIn && (<div>
-                    <FaHeart
-                        className="wish"
-                        onClick={() => {
-                          addwish(e);
-                        }}
-                      />
-                    </div>)}
+                    {userstate.isLoggedIn && (
+                      <div>
+                        <FaHeart
+                          className="wish"
+                          onClick={() => {
+                            addwish(e);
+                          }}
+                        />
+                      </div>
+                    )}
                     <img className="img" alt="" src={e.image} />
                     <h3>{e.name}</h3>
                     <p>{e.description}</p>
                     <div className="PriceAndBtn">
                       <p id="price">{e.price} SAR</p>
-                      {userstate.isLoggedIn && (<button
-                        id="cart"
-                        onClick={() => {
-                          addCart(e);
-                        }}
-                      >
-                        Add to cart
-                      </button>)}
+                      {userstate.isLoggedIn && (
+                        <button
+                          id="cart"
+                          onClick={() => {
+                            addCart(e);
+                          }}
+                        >
+                          Add to cart
+                        </button>
+                      )}
                     </div>
                   </div>
-                </div> 
-                
+                </div>
               );
             }
             return console.log(id);

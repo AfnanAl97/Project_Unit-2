@@ -3,7 +3,7 @@ import { FaShoppingBasket } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { FaSignOutAlt , FaEdit} from "react-icons/fa";
+import { FaSignOutAlt, FaEdit } from "react-icons/fa";
 import { logout } from "../reducers/SignupLogin/action";
 import { useDispatch } from "react-redux";
 
@@ -43,18 +43,20 @@ function Header() {
           </li>
 
           {userstate.isLoggedIn && (
-            <><li>
-              <Link
-                id="logout"
-                to="/"
-                onClick={() => {
-                  const action = logout();
-                  dispatch(action);
-                } }
-              >
-                <FaSignOutAlt />
-              </Link>
-            </li><li>
+            <>
+              <li>
+                <Link
+                  id="logout"
+                  to="/"
+                  onClick={() => {
+                    const action = logout();
+                    dispatch(action);
+                  }}
+                >
+                  <FaSignOutAlt />
+                </Link>
+              </li>
+              <li>
                 <Link id="heart" to="/Wishlist">
                   <FaHeart />
                 </Link>
@@ -63,12 +65,16 @@ function Header() {
                 <Link id="shop" to="/cart">
                   <FaShoppingBasket />
                 </Link>
-              </li></>)}
-              {userstate.currentUser.id === 1 && (<li>
-                <Link id="edit" to="/Admin">
-                  <FaEdit />
-                </Link>
-              </li>)}
+              </li>
+            </>
+          )}
+          {userstate.currentUser.id === 1 && (
+            <li>
+              <Link id="edit" to="/Admin">
+                <FaEdit />
+              </Link>
+            </li>
+          )}
         </ul>
       </div>
     </>

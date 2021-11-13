@@ -1,6 +1,6 @@
-export const addToPrev=(payload)=>{
-    return{
-        type: "AddToPrev",
-        payload:payload
-    }
-}
+export const addToPrev = (payload) => {
+  return {
+    type: "AddToPrev",
+    payload: payload,
+  };
+};
